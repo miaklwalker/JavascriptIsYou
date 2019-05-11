@@ -21,12 +21,11 @@ export const GameInfo = {
   Levels: {
     0: {
       blocks: {
-        horizantal: [],
+        horizantal: [[4,9,9,"wall","Sprite"]],
         Vertical: [],
-
-        Sprites: [, [13, 14, "baba", "noun"]],
-        Verbs: [[5, 16, "you", "verb"]],
-        Nouns: [[5, 14, "baba", "noun"]],
+        Sprites: [, [12, 15, "baba", "Sprite"]],
+        Verbs: [[6, 15, "you", "verb"],[5, 16, "stop", "verb"]],
+        Nouns: [[4, 15, "wall", "noun"],[5, 14, "baba", "noun"]],
         is: [[5, 15]]
       }
     },

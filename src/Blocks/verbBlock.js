@@ -1,4 +1,4 @@
-import { Block } from "./Block";
+import { Block } from "./Block.js";
 import { GameInfo } from "../gameInfo.js";
 
 export class verbBlock extends Block {

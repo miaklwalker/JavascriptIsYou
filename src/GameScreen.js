@@ -1,8 +1,8 @@
 import { cache } from "./index.js";
 
 export function drawBackground(size, color) {
-  if (cache.has([size, color])) {
-    return cache.get([size, color]);
+  if (cache.has(size)) {
+    return cache.get(size);
   } else {
     const background = document.createElement("canvas");
     background.width = size;
@@ -10,7 +10,7 @@ export function drawBackground(size, color) {
     const ctx = background.getContext("2d");
     ctx.fillStyle = color;
     ctx.fillRect(0, 0, background.width, background.height);
-    cache.set([size, color], background);
+    cache.set(size, background);
     return background;
   }
 }

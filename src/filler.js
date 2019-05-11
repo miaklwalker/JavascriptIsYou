@@ -1,6 +1,6 @@
-import { SpriteBlock } from "./Blocks/spriteBlock";
-import { cache } from ".";
-import { objects } from "./blockDraw";
+import { SpriteBlock } from "./Blocks/spriteBlock.js";
+import { objects } from "./blockDraw.js";
+import { cache } from "./index.js";
 
 export function makeHorizontalRow(startX, startY, finishX, name, type) {
   if (cache.has([startX, startY, finishX, name, type])) {

@@ -1,4 +1,4 @@
-import { objects } from "./blockDraw";
+import { objects } from "./blockDraw.js";
 
 export const Rules = {};
 

@@ -1,21 +1,24 @@
-import { GameInfo } from "./gameInfo";
-import { LevelNum } from "./index.js";
+import { GameInfo } from "./gameInfo.js";
+import { Level } from "./index.js";
 import { makeVerticalRow, makeHorizontalRow } from "./filler.js";
-import { objects } from "./blockDraw";
-
+import { objects } from "./blockDraw.js";
+export let RowDrawn = false;
 export function drawRows() {
-  GameInfo.Levels[LevelNum].blocks.Vertical.forEach(
+if(!RowDrawn){
+  GameInfo.Levels[Level.Num].blocks.Vertical.forEach(
     ([x, y, y2, name, type]) => {
       makeVerticalRow(x, y, y2, name, type).forEach(block => {
         objects.push(block);
       });
     }
   );
-  GameInfo.Levels[LevelNum].blocks.horizantal.forEach(
+  GameInfo.Levels[Level.Num].blocks.horizantal.forEach(
     ([x, y, y2, name, type]) => {
       makeHorizontalRow(x, y, y2, name, type).forEach(block => {
         objects.push(block);
       });
     }
   );
+  RowDrawn = true;
+}
 }

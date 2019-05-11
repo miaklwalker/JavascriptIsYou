@@ -4,6 +4,7 @@ import { controls } from "../Controls.js";
 import { objects } from "../blockDraw.js";
 import { Level, Drawn } from "../index.js";
 import { collisionHelper } from "../debug.js";
+import { Vector } from "../Vectors.js";
 let frame = 0 ;
 export class SpriteBlock extends Block {
   constructor(x, y, name, type) {
@@ -16,6 +17,7 @@ export class SpriteBlock extends Block {
     this.left = false;
     this.up =false;
     this.down = false;
+    this.shove= new Vector(0,0);
   }
   show(canvas, context, Cells) {
     context.fillStyle = GameInfo.Sprite[this.name];
@@ -25,7 +27,7 @@ export class SpriteBlock extends Block {
       canvas.width / Cells,
       canvas.height / Cells
     );
-    collisionHelper(this,context,canvas,Cells);
+    //collisionHelper(this,context,canvas,Cells);
   }
   move() {
 

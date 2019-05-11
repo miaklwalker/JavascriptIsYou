@@ -2,13 +2,13 @@ import { drawBackground, drawGrid } from "./GameScreen.js";
 import { drawRows, RowDrawn } from "./RowDraw.js";
 import { drawBlocks, BlocksDrawn} from "./blockDraw.js";
 import { controls } from "./Controls.js";
-import { setRules, Rules } from "./gameRules.js";
+import { setRules, Rules, removeRule } from "./gameRules.js";
 import { runCollisions } from "./collision.js";
 
 export const cache = new Map();
 export let Drawn = [BlocksDrawn,RowDrawn];
 export let Level={
-  Num:1
+  Num:0
 }
 const canvasSize = 540;
 const cells = 20;
@@ -29,12 +29,14 @@ function draw() {
   drawRows();
   drawBlocks(canvas, context, cells);
   setRules();
+  removeRule()
 
   GameLoop(draw);
 }
 
 function GameLoop(name) {
- requestAnimationFrame(name)
+ //requestAnimationFrame(name)
+ setTimeout(name,1000/15)
 }
 
 setup();

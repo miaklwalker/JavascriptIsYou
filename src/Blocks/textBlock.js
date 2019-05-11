@@ -1,9 +1,12 @@
 import { Block } from './Block.js';
 import { GameInfo } from '../gameInfo.js';
+import { Vector } from '../Vectors.js';
 
 export class textBlock extends Block {
 	constructor(x, y, name, type) {
 		super(x, y, name, type);
+		this.push=true;
+		this.shove= new Vector(0,0);
 	}
 	show(canvas, context, cells) {
 		context.fillStyle = GameInfo.Text[this.name];
@@ -16,7 +19,5 @@ export class textBlock extends Block {
 			canvas.width / cells,
 		);
 	}
-	push() {
-    
-  }
+
 }

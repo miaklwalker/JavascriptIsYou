@@ -14,6 +14,8 @@ export class isBlock extends textBlock {
     this.ruleTwo = [];
   }
   Rules() {
+    this.ruleOne =[];
+    this.ruleTwo=[];
     objects.forEach(block => {
       if (block.type === "noun") {
         if (this.up.same(block.position)) {

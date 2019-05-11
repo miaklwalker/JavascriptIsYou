@@ -3,6 +3,7 @@ import { Level } from "./index.js";
 import { makeVerticalRow, makeHorizontalRow } from "./filler.js";
 import { objects } from "./blockDraw.js";
 export let RowDrawn = false;
+
 export function drawRows() {
 if(!RowDrawn){
   GameInfo.Levels[Level.Num].blocks.Vertical.forEach(

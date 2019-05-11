@@ -1,11 +1,11 @@
-import { drawBackground, drawGrid } from "./GameScreen.js";
 import { drawRows, RowDrawn } from "./RowDraw.js";
 import { drawBlocks, BlocksDrawn} from "./blockDraw.js";
 import { controls } from "./Controls.js";
-import { setRules, Rules, removeRule } from "./gameRules.js";
+import { setRules, Rules } from "./gameRules.js";
 import { runCollisions } from "./collision.js";
+import { drawBackground } from "./drawBackground.js";
+import { drawGrid } from "./drawGrid.js";
 
-export const cache = new Map();
 export let Drawn = [BlocksDrawn,RowDrawn];
 export let Level={
   Num:0
@@ -23,13 +23,13 @@ function setup() {
 
 }
 function draw() {
-  context.drawImage(drawBackground(canvasSize, "black"), 0, 0);
-  //context.drawImage(drawGrid(canvasSize, canvasSize, cells), 0, 0);
+  context.drawImage(drawBackground(canvas, "black"), 0, 0);
+  context.drawImage(drawGrid(canvas, cells), 0, 0);
   runCollisions();
   drawRows();
   drawBlocks(canvas, context, cells);
   setRules();
-  removeRule()
+
 
   GameLoop(draw);
 }

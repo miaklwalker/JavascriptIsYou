@@ -8,7 +8,7 @@ import { Vector } from "../Vectors.js";
 let frame = 0 ;
 export class SpriteBlock extends Block {
   constructor(x, y, name, type) {
-    super(x, y, name, type);
+    super(x, y, name, "Sprite");
     this.you = false;
     this.push = false;
     this.win = false;

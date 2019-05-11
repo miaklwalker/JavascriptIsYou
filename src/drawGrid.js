@@ -1,4 +1,4 @@
-import memoize from "./Cache.js";
+import memoize from "./cache.js";
 
  function _drawGrid(canvas,cells) {
 	const grid = document.createElement('canvas');

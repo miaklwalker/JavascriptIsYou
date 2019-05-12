@@ -19,7 +19,6 @@ function applyRules(){
             if(spriteBlocks[i].name===names[j]){
             spriteBlocks[i][rules[j]] = true;
             }
-            //console.log(rules[i]);
         }
     }
 }

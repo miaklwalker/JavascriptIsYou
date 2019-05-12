@@ -3,13 +3,13 @@ import { makeNounBlocks, makeIsBlocks, makeSpritesBlocks, makeVerbBlocks } from 
 import { addGroup } from "./MakeGroup.js";
 
 export function makeLevel() {
-    if (!GameInfo.drawn.Level) {
+    if (!GameInfo.drawn.level) {
         addGroup()
         makeNounBlocks();
         makeIsBlocks();
         makeSpritesBlocks();
         makeVerbBlocks();
-        GameInfo.drawn.Level = true;
+        GameInfo.drawn.level = true;
     }
 }
 

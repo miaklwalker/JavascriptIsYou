@@ -4,7 +4,7 @@ import {
     verbBlocks,
     spriteBlocks,
 } from "../blocks/BlocksCache.js";
-import { GameInfo } from "../GameFiles/Levels.js";
+import { GameInfo} from "../GameFiles/Levels.js"
 import { controls } from "./Controls.js";
 
 export function Restart() {

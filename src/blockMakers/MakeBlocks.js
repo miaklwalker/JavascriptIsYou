@@ -35,4 +35,5 @@ export function makeSpritesBlocks() {
     GameInfo.Levels[Level.num].blocks.Sprites.forEach(([x, y, name]) =>
         spriteBlocks.push(new SpriteBlock(x, y, name)),
     );
+    console.log(spriteBlocks);
 }

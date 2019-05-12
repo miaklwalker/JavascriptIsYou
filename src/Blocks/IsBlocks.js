@@ -30,18 +30,18 @@ export class isBlock extends Block {
 		this.ruleTwo = [];
 	nounBlocks.forEach(block=>{
 		if(this.left.same(block.position)){
-			this.ruleOne.unshift(block);
+			this.ruleOne.unshift(block.name);
 		}
 		if(this.up.same(block.position)){
-			this.ruleTwo.unshift(block);
+			this.ruleTwo.unshift(block.name);
 		}
 	});
 	verbBlocks.forEach(block=>{
 		if(this.right.same(block.position)){
-			this.ruleOne.push(block);
+			this.ruleOne.push(block.name);
 		}
 		if(this.down.same(block.position)){
-			this.ruleTwo.push(block);
+			this.ruleTwo.push(block.name);
 		}
 	})	
 	}

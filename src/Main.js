@@ -5,6 +5,8 @@ import { makeLevel } from "./blockMakers/MakeLevel.js";
 import { drawBlocks } from "./draw/DrawBlocks.js";
 import { blockLogic } from "./Blocks/BlockLogic.js";
 import { controls } from "./functions/Controls.js";
+import { setRules } from "./GameFiles/Rules.js";
+import { Restart } from "./functions/Restart.js";
 
 
 
@@ -29,6 +31,8 @@ function draw() {
     blockLogic();
     drawBlocks(canvas,context,GameInfo.tiles)
     controls.normalize();
+    setRules();
+    Restart();
     loop(draw);
 }
 function loop(name, frameRate) {

@@ -16,11 +16,13 @@ export let controls = {
     ArrowRight: false,
   //*MouseControls
     click: false,
+  //*Key Controls
+    KeyR:false,
   normalize(){
     (this.KeyW || this.ArrowUp)?this.up = true:this.up=false;
     (this.KeyA || this.ArrowLeft)?this.left = true:this.left=false;
-    (this.KeyS || this.ArrowRight)?this.right = true:this.right=false;
-    (this.KeyD || this.ArrowDown)?this.down = true:this.down=false;
+    (this.KeyD || this.ArrowRight)?this.right = true:this.right=false;
+    (this.KeyS || this.ArrowDown)?this.down = true:this.down=false;
   },
 
     addControls() {

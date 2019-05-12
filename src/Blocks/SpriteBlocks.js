@@ -1,56 +1,65 @@
-import Block from './Block.js';
-import { GameInfo } from '../GameFiles/Levels.js';
-import { controls } from '../functions/Controls.js';
+import Block from "./Block.js";
+import { GameInfo } from "../GameFiles/Levels.js";
+import { controls } from "../functions/Controls.js";
 
 export class SpriteBlock extends Block {
-	constructor(x, y, name) {
-		super(x, y, name, 'Sprite');
+    constructor(x, y, name) {
+        super(x, y, name, "Sprite");
 
-		this.you = false;
-		this.push = false;
-		this.win = false;
-		this.stop = false;
+        this.moveBuffer = 0;
 
-		this.right = false;
-		this.left = false;
-		this.up = false;
+        this.you = false;
+        this.push = false;
+        this.win = false;
+        this.stop = false;
+
+        this.right = false;
+        this.left = false;
+        this.up = false;
+        this.down = false;
+    }
+    show(canvas, context, Cells) {
+        context.fillStyle = GameInfo.Sprite[this.name];
+        context.fillRect(
+            (this.position.x * canvas.width) / Cells,
+            (this.position.y * canvas.height) / Cells,
+            canvas.width / Cells,
+            canvas.height / Cells,
+        );
+    }
+    move() {
+        if (this.you) {
+            if (this.moveBuffer % 40 === 0) {
+                if (controls.up) {
+                    if (!this.up) {
+						this.position.y -= 1;
+						console.log('up');
+                    }
+                }
+                if (controls.down) {
+                    if (!this.down) {
+						this.position.y += 1;
+						console.log('down');
+                    }
+                }
+                if (controls.left) {
+                    if (!this.left) {
+						this.position.x -= 1;
+						console.log('left');
+                    }
+                }
+                if (controls.right) {
+                    if (!this.right) {
+						this.position.x += 1;
+						console.log('right');
+                    }
+                }
+            }
+        }
+        this.left = false;
+        this.right = false;
+        this.up = false;
 		this.down = false;
-	}
-	show(canvas, context, Cells) {
-		context.fillStyle = GameInfo.Sprite[this.name];
-		context.fillRect(
-			(this.position.x * canvas.width) / Cells,
-			(this.position.y * canvas.height) / Cells,
-			canvas.width / Cells,
-			canvas.height / Cells,
-		);
-	}
-	move() {
-		if (this.you) {
-			if (controls.up) {
-				if (!this.up) {
-					this.position.y -= 1;
-				}
-			}
-			if (controls.left) {
-				if (!this.down) {
-					this.position.y += 1;
-				}
-			}
-			if (controls.left) {
-				if (!this.left) {
-					this.position.x -= 1;
-				}
-			}
-			if (controls.right) {
-				if (!this.adjRight) {
-					this.position.x += 1;
-				}
-			}
-		}
-		this.left = false;
-		this.right = false;
-		this.up = false;
-		this.down = false;
-	}
+		this.moveBuffer++;
+    }
 }

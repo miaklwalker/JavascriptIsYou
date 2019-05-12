@@ -1,5 +1,6 @@
 import { GameInfo } from "../GameFiles/Levels.js";
 import { nounBlocks, verbBlocks, operatorBlocks, spriteBlocks } from "../blocks/BlocksCache.js";
+import { collisionHelper } from "../debugTools/Hitboxes.js";
 
 export function drawBlocks(canvas, context, cells) {
     if(GameInfo.drawn){
@@ -30,6 +31,7 @@ function drawOperators(canvas,context,cells){
 function drawSprites(canvas,context,cells){
     spriteBlocks.forEach(block =>{
         block.show(canvas,context,cells);
+        collisionHelper(block,context,canvas,cells);
     })
 
 }

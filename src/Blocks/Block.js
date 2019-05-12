@@ -6,5 +6,6 @@ export class Block {
     this.name = name;
     this.Width = 10;
     this.type = type;
+    
   }
 }

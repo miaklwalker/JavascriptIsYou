@@ -8,7 +8,7 @@ import { drawGrid } from "./drawGrid.js";
 
 export let Drawn = [BlocksDrawn,RowDrawn];
 export let Level={
-  Num:0
+  Num:1
 }
 const canvasSize = 540;
 const cells = 20;
@@ -25,9 +25,9 @@ function setup() {
 function draw() {
   context.drawImage(drawBackground(canvas, "black"), 0, 0);
   context.drawImage(drawGrid(canvas, cells), 0, 0);
-  runCollisions();
   drawRows();
   drawBlocks(canvas, context, cells);
+  runCollisions();
   setRules();
 
 

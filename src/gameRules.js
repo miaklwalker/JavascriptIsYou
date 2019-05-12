@@ -1,6 +1,6 @@
 import { objects } from "./blockDraw.js";
 import { GameInfo } from "./gameInfo.js";
-let oldRules;
+
 export let Rules = {};
 
 export function setRules() {

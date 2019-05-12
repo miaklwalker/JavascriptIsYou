@@ -1,6 +1,7 @@
 import { Vector } from '../Math/Vector.js';
 import Block from './Block.js';
 import { GameInfo } from '../GameFiles/Levels.js';
+import { nounBlocks, verbBlocks } from './BlocksCache.js';
 
 export class isBlock extends Block {
 	constructor(x, y) {
@@ -24,37 +25,24 @@ export class isBlock extends Block {
 			canvas.width / cells,
 		);
 	}
-	Rules() {
+	rules() {
 		this.ruleOne = [];
 		this.ruleTwo = [];
-		objects.forEach(block => {
-			if (block.type === 'noun') {
-				if (this.upTile.same(block.position)) {
-					this.ruleOne.push(block.name);
-				}
-				if (this.left.same(block.position)) {
-					this.ruleTwo.push(block.name);
-				}
-			} else if (block.type === 'verb') {
-				if (this.down.same(block.position)) {
-					this.ruleOne.push(block.name);
-				}
-				if (this.right.same(block.position)) {
-					this.ruleTwo.push(block.name);
-				}
-			}
-		});
-		if (
-			this.ruleOne[0] !== undefined &&
-			this.ruleOne[1] !== undefined
-		) {
-			Rules[this.ruleOne[0]] = `${this.ruleOne[1]}`;
+	nounBlocks.forEach(block=>{
+		if(this.left.same(block.position)){
+			this.ruleOne.unshift(block);
 		}
-		if (
-			this.ruleTwo[0] !== undefined &&
-			this.ruleTwo[1] !== undefined
-		) {
-			Rules[this.ruleTwo[0]] = `${this.ruleTwo[1]}`;
+		if(this.up.same(block.position)){
+			this.ruleTwo.unshift(block);
 		}
+	});
+	verbBlocks.forEach(block=>{
+		if(this.right.same(block.position)){
+			this.ruleOne.push(block);
+		}
+		if(this.down.same(block.position)){
+			this.ruleTwo.push(block);
+		}
+	})	
 	}
 }

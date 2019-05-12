@@ -17,15 +17,12 @@ function verbLogic(){
       })
 }
 function operatorLogic(){
-      operatorBlocks.forEach(blocks=>{
-            
+      operatorBlocks.forEach(block=>{
+            block.rules()
       })
 }
 function spriteLogic(){
-      console.log(spriteBlocks)
       spriteBlocks.forEach(block=>{
-                  console.log('block');
-                  block.you=true;
             block.move();
       })
 }

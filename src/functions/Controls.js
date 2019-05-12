@@ -17,12 +17,10 @@ export let controls = {
   //*MouseControls
     click: false,
   normalize(){
-    console.log(
-    (this.KeyW || this.ArrowUp)?this.up = true:this.up=false,
-    (this.KeyA || this.ArrowLeft)?this.left = true:this.left=false,
-    (this.KeyS || this.ArrowRight)?this.right = true:this.right=false,
-    (this.KeyD || this.ArrowDown)?this.down = true:this.down=false,
-    );
+    (this.KeyW || this.ArrowUp)?this.up = true:this.up=false;
+    (this.KeyA || this.ArrowLeft)?this.left = true:this.left=false;
+    (this.KeyS || this.ArrowRight)?this.right = true:this.right=false;
+    (this.KeyD || this.ArrowDown)?this.down = true:this.down=false;
   },
 
     addControls() {

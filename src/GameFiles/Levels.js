@@ -58,14 +58,14 @@ export const GameInfo = {
       1: {
         blocks: {
           horizantal: [
-            [4, 9, 9, "floor", "Sprite"],
-            [4, 10, 9, "floor", "Sprite"],
-            [4, 11, 9, "floor", "Sprite"],
+            //[4, 9, 9, "floor", "Sprite"],
+            //[4, 10, 9, "floor", "Sprite"],
+            //[4, 11, 9, "floor", "Sprite"],
             [4, 8, 15, "wall", "Sprite"],
             [4, 12, 15, "wall", "Sprite"],
-            [10, 9, 15, "floor", "Sprite"],
-            [10, 10, 15, "floor", "Sprite"],
-            [10, 11, 15, "floor", "Sprite"]
+           // [10, 9, 15, "floor", "Sprite"],
+           // [10, 10, 15, "floor", "Sprite"],
+           // [10, 11, 15, "floor", "Sprite"]
           ],
           Vertical: [[9, 9, 12, "rock", "Sprite"]],
   
@@ -93,9 +93,9 @@ export const GameInfo = {
             [5, 11, 16, "wall", "Sprite"],
             [5, 7, 10, "wall", "sprite"],
             [9, 17, 16, "wall", "sprite"],
-            [6, 8, 10, "floor", "sprite"],
-            [6, 9, 10, "floor", "sprite"],
-            [6, 10, 10, "floor", "sprite"]
+            //[6, 8, 10, "floor", "sprite"],
+            //[6, 9, 10, "floor", "sprite"],
+            //[6, 10, 10, "floor", "sprite"]
           ],
           Vertical: [
             [9, 4, 7, "wall", "Sprite"],

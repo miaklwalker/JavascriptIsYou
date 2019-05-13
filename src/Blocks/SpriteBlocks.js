@@ -1,6 +1,10 @@
 import Block from "./Block.js";
 import { GameInfo } from "../GameFiles/Levels.js";
 import { controls } from "../functions/Controls.js";
+import { spriteBlocks } from "./BlocksCache.js";
+import { Level } from "../Main.js";
+import { Restart } from "../functions/Restart.js";
+import { win } from "../functions/win.js";
 
 export class SpriteBlock extends Block {
     constructor(x, y, name) {
@@ -32,22 +36,22 @@ export class SpriteBlock extends Block {
             if (this.moveBuffer % 10 === 0) {
                 if (controls.up) {
                     if (!this.up) {
-						this.position.y -= 1;
+                        this.position.y -= 1;
                     }
                 }
                 if (controls.down) {
                     if (!this.down) {
-						this.position.y += 1;
+                        this.position.y += 1;
                     }
                 }
                 if (controls.left) {
                     if (!this.left) {
-						this.position.x -= 1;
+                        this.position.x -= 1;
                     }
                 }
                 if (controls.right) {
                     if (!this.right) {
-						this.position.x += 1;
+                        this.position.x += 1;
                     }
                 }
             }
@@ -55,7 +59,16 @@ export class SpriteBlock extends Block {
         this.left = false;
         this.right = false;
         this.up = false;
-		this.down = false;
-		this.moveBuffer++;
+        this.down = false;
+        this.moveBuffer++;
+        if (this.win) {
+            spriteBlocks.forEach(block => {
+                if (block.you) {
+                    if (block.position.same(this.position)) {
+                        win();
+                    }
+                }
+            });
+        }
     }
 }

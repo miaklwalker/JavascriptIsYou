@@ -7,8 +7,8 @@ import {
 import { GameInfo } from "../GameFiles/Levels.js";
 import { controls } from "./Controls.js";
 
-export function Restart() {
-    if (controls.KeyR) {
+export function Restart(lvlChange = false) {
+    if (controls.KeyR || lvlChange) {
         while (nounBlocks.length) {
             nounBlocks.pop();
         }

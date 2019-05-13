@@ -44,11 +44,11 @@ export class isBlock extends Block {
 			this.ruleTwo.push(block.name);
 		}
 	})
-	if(this.ruleOne.includes(undefined)){
-		this.ruleOne = [];
-	}	
-	if(this.ruleTwo.includes(undefined)){
-		this.ruleTwo = [];
-	}
+	 if(this.ruleOne.includes(undefined)){
+	 	this.ruleOne = [];
+	 }	
+		if(this.ruleTwo.includes(undefined)){
+	 	this.ruleTwo = [];
+	 }
 	}
 }

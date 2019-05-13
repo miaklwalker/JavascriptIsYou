@@ -10,22 +10,22 @@ export function SpriteCollision(other) {
     let down = new Vector(x, y + 1);
     spriteBlocks.forEach(block => {
         if (block.position.same(left)) {
-            if (block.stop||block) {
+            if (block.stop) {
                 other.left = true;
             }
         }
         if (block.position.same(right)) {
-            if (block.stop||block) {
+            if (block.stop) {
                 other.right = true;
             }
         }
         if (block.position.same(up)) {
-            if (block.stop||block) {
+            if (block.stop) {
                 other.up = true;
             }
         }
         if (block.position.same(down)) {
-            if (block.stop||block) {
+            if (block.stop) {
                 other.down = true;
             }
         }

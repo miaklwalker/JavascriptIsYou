@@ -1,6 +1,5 @@
-import memoize from "./cache.js";
-
- function _drawGrid(canvas,cells) {
+import memoize from "../functions/cache.js";
+function _drawGrid(canvas,cells) {
 	const grid = document.createElement('canvas');
 	const ctx = grid.getContext('2d');
 	grid.height = canvas.height;

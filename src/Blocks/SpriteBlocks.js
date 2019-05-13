@@ -32,26 +32,23 @@ export class SpriteBlock extends Block {
             if (this.moveBuffer % 40 === 0) {
                 if (controls.up) {
                     if (!this.up) {
+                        console.log(this.up);
 						this.position.y -= 1;
-						console.log('up');
                     }
                 }
                 if (controls.down) {
                     if (!this.down) {
 						this.position.y += 1;
-						console.log('down');
                     }
                 }
                 if (controls.left) {
                     if (!this.left) {
 						this.position.x -= 1;
-						console.log('left');
                     }
                 }
                 if (controls.right) {
                     if (!this.right) {
 						this.position.x += 1;
-						console.log('right');
                     }
                 }
             }

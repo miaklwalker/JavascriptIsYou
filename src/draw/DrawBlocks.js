@@ -31,7 +31,7 @@ function drawOperators(canvas,context,cells){
 function drawSprites(canvas,context,cells){
     spriteBlocks.forEach(block =>{
         block.show(canvas,context,cells);
-        collisionHelper(block,context,canvas,cells);
+        //collisionHelper(block,context,canvas,cells);
     })
 
 }

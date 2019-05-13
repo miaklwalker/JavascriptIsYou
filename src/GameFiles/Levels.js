@@ -50,7 +50,7 @@ export const GameInfo = {
           horizantal: [[4,9,9,"wall","Sprite"]],
           Vertical: [],
           Sprites: [, [12, 15, "baba", "Sprite"]],
-          Verbs: [[6, 15, "push", "verb"],[5, 16, "you", "verb"]],
+          Verbs: [[6, 15, "stop", "verb"],[5, 16, "you", "verb"]],
           Nouns: [[4, 15, "wall", "noun"],[5, 14, "baba", "noun"]],
           is: [[5, 15]]
         }

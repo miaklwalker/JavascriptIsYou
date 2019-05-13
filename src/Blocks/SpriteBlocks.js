@@ -29,10 +29,9 @@ export class SpriteBlock extends Block {
     }
     move() {
         if (this.you) {
-            if (this.moveBuffer % 40 === 0) {
+            if (this.moveBuffer % 10 === 0) {
                 if (controls.up) {
                     if (!this.up) {
-                        console.log(this.up);
 						this.position.y -= 1;
                     }
                 }

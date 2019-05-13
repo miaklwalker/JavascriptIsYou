@@ -12,7 +12,7 @@ import { runCollisions } from "./functions/collision.js";
 
 
 
-export const Level = { num: 0 };
+export const Level = { num: "debug" };
 
 const canvas = document.getElementById("screen");
 const context = canvas.getContext("2d");
@@ -29,9 +29,12 @@ function draw() {
     context.drawImage(drawBackground(canvas,"black"),0,0);
     context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
     makeLevel();
-    runCollisions();
-    blockLogic();
     drawBlocks(canvas,context,GameInfo.tiles)
+    calculate()
+}
+function calculate(){
+    blockLogic();
+    runCollisions();
     controls.normalize();
     setRules();
     Restart();

@@ -7,5 +7,6 @@ export default class Block {
         this.name = name;
         this.type = type;
         this.shove = new Vector(0,0);
+        this.shoved = false;
     }
 }

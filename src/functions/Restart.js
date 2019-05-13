@@ -4,26 +4,24 @@ import {
     verbBlocks,
     spriteBlocks,
 } from "../blocks/BlocksCache.js";
-import { GameInfo} from "../GameFiles/Levels.js"
+import { GameInfo } from "../GameFiles/Levels.js";
 import { controls } from "./Controls.js";
 
 export function Restart() {
-    let drawing = false;
-    
     if (controls.KeyR) {
-        while(nounBlocks.length){
+        while (nounBlocks.length) {
             nounBlocks.pop();
         }
-        while(verbBlocks.length){
+        while (verbBlocks.length) {
             verbBlocks.pop();
         }
-        while(operatorBlocks.length){
-            operatorBlocks.pop()
+        while (operatorBlocks.length) {
+            operatorBlocks.pop();
         }
-        while(spriteBlocks.length){
+        while (spriteBlocks.length) {
             spriteBlocks.pop();
-        } 
+        }
         GameInfo.drawn.level = false;
-        console.log("Game Redrawn")
+        console.log("Game Redrawn");
     }
 }

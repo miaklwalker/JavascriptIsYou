@@ -1,4 +1,5 @@
 export const GameInfo = {
+  Rules: ['you', 'push', 'win', 'stop'],
   drawn:{
     level:false,
     background:false,
@@ -27,12 +28,29 @@ export const GameInfo = {
     },
   
     Levels: {
+      debug: {
+        blocks: {
+          horizantal: [[4, 9, 9, 'wall']],
+          Vertical: [],
+          Sprites: [, [12, 15, 'baba'], [13, 15, 'rock']],
+          Verbs: [
+            [6, 15, 'push'],
+            [5, 16, 'you'],
+            [7, 17, 'stop'],
+          ],
+          Nouns: [
+            [4, 15, 'wall'],
+            [5, 14, 'baba'],
+          ],
+          is: [[5, 15]],
+        },
+      },
       0: {
         blocks: {
           horizantal: [[4,9,9,"wall","Sprite"]],
           Vertical: [],
           Sprites: [, [12, 15, "baba", "Sprite"]],
-          Verbs: [[6, 15, "stop", "verb"],[5, 16, "you", "verb"]],
+          Verbs: [[6, 15, "push", "verb"],[5, 16, "you", "verb"]],
           Nouns: [[4, 15, "wall", "noun"],[5, 14, "baba", "noun"]],
           is: [[5, 15]]
         }

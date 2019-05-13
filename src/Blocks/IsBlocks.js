@@ -43,6 +43,12 @@ export class isBlock extends Block {
 		if(this.down.same(block.position)){
 			this.ruleTwo.push(block.name);
 		}
-	})	
+	})
+	if(this.ruleOne.includes(undefined)){
+		this.ruleOne = [];
+	}	
+	if(this.ruleTwo.includes(undefined)){
+		this.ruleTwo = [];
+	}
 	}
 }

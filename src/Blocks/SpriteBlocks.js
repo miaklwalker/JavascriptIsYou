@@ -2,8 +2,6 @@ import Block from "./Block.js";
 import { GameInfo } from "../GameFiles/Levels.js";
 import { controls } from "../functions/Controls.js";
 import { spriteBlocks } from "./BlocksCache.js";
-import { Level } from "../Main.js";
-import { Restart } from "../functions/Restart.js";
 import { win } from "../functions/win.js";
 
 export class SpriteBlock extends Block {

@@ -27,7 +27,7 @@ function setup() {
 }
 function draw() {
     context.drawImage(drawBackground(canvas,"black"),0,0);
-    //context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
+    context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
     makeLevel();
     drawBlocks(canvas,context,GameInfo.tiles)
     blockLogic();

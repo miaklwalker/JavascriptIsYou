@@ -8,11 +8,16 @@ import { controls } from "./functions/Controls.js";
 import { setRules } from "./GameFiles/Rules.js";
 import { Restart } from "./functions/Restart.js";
 import { runCollisions } from "./functions/collision.js";
+import { MessageQueue } from "./MessageCenter/MessageQueue.js";
 
 
 
 
-export const Level = { num: 1 };
+export const Level = { 
+    num: "debug",
+    msgCenter: new MessageQueue(),
+
+};
 
 const canvas = document.getElementById("screen");
 const context = canvas.getContext("2d");
@@ -32,6 +37,7 @@ function draw() {
     drawBlocks(canvas,context,GameInfo.tiles)
     blockLogic();
     runCollisions();
+Level.msgCenter.dispatch();
     controls.normalize();
     setRules();
     Restart();

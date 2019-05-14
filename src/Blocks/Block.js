@@ -7,6 +7,8 @@ export default class Block {
         this.name = name;
         this.type = type;
         this.shove = new Vector(0,0);
-
+    }
+    onMessage(msg){
+        console.info(`Message From : ${msg.from} . Message To ${msg.to} : called from ${this.name} Type: ${msg.type} Data: ${msg.data} `)
     }
 }

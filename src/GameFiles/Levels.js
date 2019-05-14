@@ -1,5 +1,5 @@
 export const GameInfo = {
-  Rules: ['you', 'push', 'win', 'stop'],
+  Rules: ['you', 'push', 'win', 'stop','sink'],
   drawn:{
     level:false,
     background:false,
@@ -13,7 +13,8 @@ export const GameInfo = {
       rock: "saddleBrown",
       wall: "Gray",
       flag: "yellow",
-      floor: "darkSlateGray"
+      floor: "darkSlateGray",
+      water:"blue"
     },
     Text: {
       baba: "Hotpink",
@@ -24,25 +25,30 @@ export const GameInfo = {
       stop: "lightGray",
       rock: "saddleBrown",
       push: "saddleBrown",
-      is: "white"
+      is: "white",
+      water:"blue",
+      sink:"blue",
     },
   
     Levels: {
+
       debug: {
         blocks: {
           horizantal: [[4, 9, 9, 'wall']],
-          Vertical: [],
-          Sprites: [, [12, 15, 'baba'], [13, 15, 'rock']],
+          Vertical: [[9,9,12,"wall"]],
+          Sprites: [, [12, 15, 'baba'], [13, 15, 'rock'],[17,15,"water"]],
           Verbs: [
             [6, 15, 'push'],
             [5, 16, 'you'],
             [7, 17, 'stop'],
+            [9,12,'sink'],
           ],
           Nouns: [
+            [7,12,"water"],
             [4, 15, 'wall'],
             [5, 14, 'baba'],
           ],
-          is: [[5, 15]],
+          is: [[5, 15],[8,12]],
         },
       },
       0: {

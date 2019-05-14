@@ -38,9 +38,9 @@ export const GameInfo = {
           Vertical: [[9,9,12,"wall"]],
           Sprites: [, [12, 15, 'baba'], [13, 15, 'rock'],[17,15,"water"]],
           Verbs: [
-            [6, 15, 'push'],
+            [6, 15, 'stop'],
             [5, 16, 'you'],
-            [7, 17, 'stop'],
+            [7, 17, 'push'],
             [9,12,'sink'],
           ],
           Nouns: [

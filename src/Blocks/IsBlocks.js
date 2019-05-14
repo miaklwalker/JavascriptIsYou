@@ -7,10 +7,10 @@ export class isBlock extends Block {
 	constructor(x, y) {
 		super(x, y, 'is', 'is');
 		this.push = true;
-		this.up = new Vector(x, y - 1);
-		this.down = new Vector(x, y + 1);
-		this.left = new Vector(x - 1, y);
-		this.right = new Vector(x + 1, y);
+		this.neighborUp = new Vector(x, y - 1);
+		this.neighborDown = new Vector(x, y + 1);
+		this.neighborLeft = new Vector(x - 1, y);
+		this.neighborRight = new Vector(x + 1, y);
 		this.ruleOne = [];
 		this.ruleTwo = [];
 	}
@@ -29,18 +29,18 @@ export class isBlock extends Block {
 		this.ruleOne = [];
 		this.ruleTwo = [];
 	nounBlocks.forEach(block=>{
-		if(this.left.same(block.position)){
+		if(this.neighborLeft.same(block.position)){
 			this.ruleOne.unshift(block.name);
 		}
-		if(this.up.same(block.position)){
+		if(this.neighborUp.same(block.position)){
 			this.ruleTwo.unshift(block.name);
 		}
 	});
 	verbBlocks.forEach(block=>{
-		if(this.right.same(block.position)){
+		if(this.neighborRight.same(block.position)){
 			this.ruleOne.push(block.name);
 		}
-		if(this.down.same(block.position)){
+		if(this.neighborDown.same(block.position)){
 			this.ruleTwo.push(block.name);
 		}
 	})

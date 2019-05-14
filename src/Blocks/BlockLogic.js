@@ -23,6 +23,6 @@ function operatorLogic(){
 }
 function spriteLogic(){
       spriteBlocks.forEach(block=>{
-            block.move();
+            //block.move();
       })
 }

@@ -37,8 +37,8 @@ function draw() {
     drawBlocks(canvas,context,GameInfo.tiles)
     blockLogic();
     runCollisions();
-Level.msgCenter.dispatch();
-    controls.normalize();
+    Level.msgCenter.dispatch();
+
     setRules();
     Restart();
     loop(draw);

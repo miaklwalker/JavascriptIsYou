@@ -13,30 +13,26 @@ export function SpriteCollision(other) {
     spriteBlocks.forEach(block => {
         if (block.position.same(left)) {
             if (block.stop) {
-                let message = new Message(other.name,block.name,"Collision","left")
+                let message = new Message(other.name,"collision","left",true)
                 Level.msgCenter.add(message);
-                other.left = true;
             }
         }
         if (block.position.same(right)) {
             if (block.stop) {
-                let message = new Message(other.name,block.name,"Collision","right")
+                let message = new Message(other.name,"collision","right",true)
                 Level.msgCenter.add(message);
-                other.right = true;
             }
         }
         if (block.position.same(up)) {
             if (block.stop) {
-                let message = new Message(other.name,block.name,"Collision","down")
+                let message = new Message(other.name,"collision","up",true)
                 Level.msgCenter.add(message);
-                other.up = true;
             }
         }
         if (block.position.same(down)) {
             if (block.stop) {
-                let message = new Message(other.name,block.name,"Collision","down")
+                let message = new Message(other.name,"collision","down",true)
                 Level.msgCenter.add(message);
-                other.down = true;
             }
         }
     });

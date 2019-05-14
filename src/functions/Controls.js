@@ -1,46 +1,83 @@
+import { Message } from '../MessageCenter/message.js';
+import { Level } from '../Main.js';
+
 export let controls = {
-  // * Named Controls
-    up: false,
-    down: false,
-    left: false,
-    right: false,
-  //*WASD Controls
-    KeyW: false,
-    KeyS: false,
-    KeyA: false,
-    KeyD: false,
-  //*Arrow Controls
-    ArrowUp: false,
-    ArrowDown: false,
-    ArrowLeft: false,
-    ArrowRight: false,
-  //*MouseControls
-    click: false,
-  //*Key Controls
-    KeyR:false,
-  normalize(){
-    (this.KeyW || this.ArrowUp)?this.up = true:this.up=false;
-    (this.KeyA || this.ArrowLeft)?this.left = true:this.left=false;
-    (this.KeyD || this.ArrowRight)?this.right = true:this.right=false;
-    (this.KeyS || this.ArrowDown)?this.down = true:this.down=false;
-  },
+  name:"controls",
+	// * Named Controls
+	up: false,
+	down: false,
+	left: false,
+	right: false,
+	//*WASD Controls
+	KeyW: false,
+	KeyS: false,
+	KeyA: false,
+	KeyD: false,
+	//*Arrow Controls
+	ArrowUp: false,
+	ArrowDown: false,
+	ArrowLeft: false,
+	ArrowRight: false,
+	//*MouseControls
+	click: false,
+	//*Key Controls
+	KeyR: false,
+	onMessage(message) {
+    console.info('msg recieved')
+		if (message.to === 'controls') {
+			if (message.from === 'EventListener') {
+					let direction;
+					switch (message.data) {
+						case "ArrowRight":
+						case "KeyD":
+							direction = 'right';
+							break;
 
-    addControls() {
-        document.addEventListener("keydown", event => {
-            if (Object.keys(this).includes(`${event.code}`)) {
-                event.preventDefault();
-                this[event.code] = true;
-            }
-        });
+						case "ArrowLeft":
+						case "KeyA":
+							direction = 'left';
+							break;
 
-        document.addEventListener("keyup", event => {
-            if (Object.keys(this).includes(`${event.code}`)) {
-                event.preventDefault();
-                this[event.code] = false;
-            }
-        });
-        document.addEventListener("click", () => {
-            this.click = true;
-        });
-    },
+						case "ArrowUp":
+						case "KeyW":
+							direction = 'up';
+							break;
+
+						case "ArrowDown":
+						case "KeyS":
+							direction = 'down';
+							break;
+          }
+          let msg = new Message("you","movement",message.type,direction)
+          Level.msgCenter.add(msg);
+			}
+		}
+	},
+
+	addControls() {
+		document.addEventListener('keydown', event => {
+			if (Object.keys(this).includes(`${event.code}`)) {
+				event.preventDefault();
+				this[event.code] = true;
+				let msg = new Message(
+					'controls',
+					'EventListener',
+					'keyPress',
+					event.code,
+        );
+				Level.msgCenter.add(msg);
+        console.info('msg sent ' + msg);
+			}
+		});
+
+		document.addEventListener('keyup', event => {
+			if (Object.keys(this).includes(`${event.code}`)) {
+				event.preventDefault();
+				this[event.code] = false;
+			}
+		});
+		document.addEventListener('click', () => {
+			this.click = true;
+		});
+	},
 };

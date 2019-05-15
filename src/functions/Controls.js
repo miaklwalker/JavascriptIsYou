@@ -1,5 +1,7 @@
 import { Message } from '../MessageCenter/message.js';
 import { Level } from '../Main.js';
+import { runCollisions } from './collision.js';
+import { Restart } from './Restart.js';
 
 export let controls = {
   name:"controls",
@@ -23,7 +25,6 @@ export let controls = {
 	//*Key Controls
 	KeyR: false,
 	onMessage(message) {
-    console.info('msg recieved')
 		if (message.to === 'controls') {
 			if (message.from === 'EventListener') {
 					let direction;
@@ -58,7 +59,10 @@ export let controls = {
 		document.addEventListener('keydown', event => {
 			if (Object.keys(this).includes(`${event.code}`)) {
 				event.preventDefault();
-				this[event.code] = true;
+				if(event.code === "KeyR"){
+					Restart(true);
+				}
+				runCollisions();
 				let msg = new Message(
 					'controls',
 					'EventListener',
@@ -66,7 +70,6 @@ export let controls = {
 					event.code,
         );
 				Level.msgCenter.add(msg);
-        console.info('msg sent ' + msg);
 			}
 		});
 

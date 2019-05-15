@@ -36,7 +36,7 @@ function draw() {
     makeLevel();
     drawBlocks(canvas,context,GameInfo.tiles)
     blockLogic();
-    runCollisions();
+   // runCollisions();
     Level.msgCenter.dispatch();
 
     setRules();

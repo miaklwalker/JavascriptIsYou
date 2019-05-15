@@ -18,77 +18,67 @@ export default class Block {
 
         this.shove = new Vector(0, 0);
 
-        this.right = false;
-        this.left = false;
-        this.up = false;
-        this.down = false;
-    }
-    move(message) {
-        if (this.you || message.from === "push") {
-            if (!this[message.data]||message.from==="push") {
+		this.right = false;
+		this.left = false;
+		this.up = false;
+		this.down = false;
+	}
 
-                switch (message.data) {
-                    case "right":
-                        this.position.x += 1;
-                        break;
-                    case "left":
-                        this.position.x -= 1;
-                        break;
-                    case "up":
-                        this.position.y -= 1;
-                        break;
-                    case "down":
-                        this.position.y += 1;
-                        break;
+	move(message) {
+		if (this.you) {
+			if (!this[message.data]) {
+				switch (message.data) {
+					case 'right':
+						this.position.x += 1;
+						break;
+					case 'left':
+						this.position.x -= 1;
+						break;
+					case 'up':
+						this.position.y -= 1;
+						break;
+					case 'down':
+						this.position.y += 1;
+						break;
 				}
-				this.lastMove = message.data;
-				console.log(this.lastMove)
-            }
-        }
-        this.left = false;
-        this.right = false;
-        this.up = false;
-        this.down = false;
-        this.moveBuffer++;
-        if (this.win) {
-            spriteBlocks.forEach(block => {
-                if (block.you) {
-                    if (block.position.same(this.position)) {
-                        win();
-                    }
+			}
+		}
+		this.left = false;
+		this.right = false;
+		this.up = false;
+		this.down = false;
+		this.moveBuffer++;
+		if (this.win) {
+			spriteBlocks.forEach(block => {
+				if (block.you) {
+					if (block.position.same(this.position)) {
+						win();
+					}
+				}
+			});
+		}
+	}
+	onMessage(msg) {
+		let from = msg.from;
+		let to = msg.to;
+		switch (from) {
+			case 'collision':
+				if (to === this.id) {
+					this[msg.type] = msg.data;
+				}
+				break;
+
+            case 'push':
+                if(to === this.id){
+                    this.move(msg);
                 }
-            });
-        }
-    }
-    onMessage(msg) {
-        if ((msg.to === "you" && this.you === true) || msg.to === this.id) {
-            if (msg.from === "collision") {
-                if (msg.to === this.id) {
-                    switch (msg.type) {
-                        case "right":
-                            this.right = true;
-                            break;
-                        case "left":
-                            this.left = true;
-                            break;
-                        case "up":
-                            this.up = true;
-                            break;
-                        case "down":
-                            this.down = true;
-                            break;
-                        case none:
-                            console.log(`its none`);
-                            this.right = false;
-                            this.left = false;
-                            this.up = false;
-                            this.down = false;
-                            break;
-                    }
-                }
-            } else if (msg.from === "movement" || msg.from === "push") {
-                this.move(msg);
-            }
-        }
-    }
+				break;
+
+			case 'movement':
+				if (to === 'you') {
+					this.move(msg);
+				}
+				break;
+		}
+	}
 }

@@ -4,53 +4,49 @@ import { runCollisions } from './collision.js';
 import { Restart } from './Restart.js';
 
 export let controls = {
-  name:"controls",
-	// * Named Controls
-	up: false,
-	down: false,
-	left: false,
-	right: false,
-	//*WASD Controls
+	name: 'controls',
 	KeyW: false,
 	KeyS: false,
 	KeyA: false,
 	KeyD: false,
-	//*Arrow Controls
 	ArrowUp: false,
 	ArrowDown: false,
 	ArrowLeft: false,
 	ArrowRight: false,
-	//*MouseControls
 	click: false,
-	//*Key Controls
 	KeyR: false,
 	onMessage(message) {
 		if (message.to === 'controls') {
 			if (message.from === 'EventListener') {
-					let direction;
-					switch (message.data) {
-						case "ArrowRight":
-						case "KeyD":
-							direction = 'right';
-							break;
+				let direction;
+				switch (message.data) {
+					case 'ArrowRight':
+					case 'KeyD':
+						direction = 'right';
+						break;
 
-						case "ArrowLeft":
-						case "KeyA":
-							direction = 'left';
-							break;
+					case 'ArrowLeft':
+					case 'KeyA':
+						direction = 'left';
+						break;
 
-						case "ArrowUp":
-						case "KeyW":
-							direction = 'up';
-							break;
+					case 'ArrowUp':
+					case 'KeyW':
+						direction = 'up';
+						break;
 
-						case "ArrowDown":
-						case "KeyS":
-							direction = 'down';
-							break;
-          }
-          let msg = new Message("you","movement",message.type,direction)
-          Level.msgCenter.add(msg);
+					case 'ArrowDown':
+					case 'KeyS':
+						direction = 'down';
+						break;
+				}
+				let msg = new Message(
+					'you',
+					'movement',
+					message.type,
+					direction,
+				);
+				Level.msgCenter.add(msg);
 			}
 		}
 	},
@@ -68,7 +64,7 @@ export let controls = {
 					'EventListener',
 					'keyPress',
 					event.code,
-        );
+				);
 				Level.msgCenter.add(msg);
 			}
 		});

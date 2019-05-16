@@ -1,5 +1,4 @@
-import { allBlocks, spriteBlocks } from '../blocks/BlocksCache.js';
-import { controls } from './Controls.js';
+import { allBlocks } from '../blocks/BlocksCache.js';
 import { Vector } from '../Math/Vector.js';
 import { Message } from '../MessageCenter/message.js';
 import { Level } from '../Main.js';

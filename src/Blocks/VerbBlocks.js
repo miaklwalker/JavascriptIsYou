@@ -1,4 +1,3 @@
-import { Vector } from "../Math/Vector.js";
 import { GameInfo } from "../GameFiles/Levels.js";
 import Block from "./Block.js";
 

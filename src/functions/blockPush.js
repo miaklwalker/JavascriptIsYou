@@ -34,9 +34,8 @@ console.log(direction)
 				if (block.position.same(controls[keyPressed])) {
 					let msg =new Message(block.id,"push","push",direction);
 					Level.msgCenter.add(msg);
-				} else {
-					block.you = false;
-				}
+					pushBlock(block,keyPressed);
+				} 
 			}
 		}
 	});

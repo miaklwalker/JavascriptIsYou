@@ -23,7 +23,7 @@ export default class Block {
 	}
 
 	move(message) {
-if (this.you || message.to === this.id) {
+		if (this.you || message.to === this.id) {
 			if (message.from === 'push' || !this[message.data]) {
 				switch (message.data) {
 					case 'right':
@@ -66,6 +66,9 @@ if (this.you || message.to === this.id) {
 				break;
 
 			case 'push':
+			if(msg.to === this.id){
+				console.log(this.name);
+			}
 				if (to === this.id) {
 					this.move(msg);
 				}

@@ -7,14 +7,13 @@ import { blockLogic } from "./Blocks/BlockLogic.js";
 import { controls } from "./functions/Controls.js";
 import { setRules } from "./GameFiles/Rules.js";
 import { Restart } from "./functions/Restart.js";
-import { runCollisions } from "./functions/collision.js";
 import { MessageQueue } from "./MessageCenter/MessageQueue.js";
 
 
 
 
 export const Level = { 
-    num: 0,
+    num: 1,
     msgCenter: new MessageQueue(),
 
 };
@@ -30,7 +29,7 @@ function draw() {
     // Draw BackGround
     context.drawImage(drawBackground(canvas,"black"),0,0);
     // Draw Grid
-   context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
+   //context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
    // Gets level data from Level Object and makes the level
     makeLevel();
     // Draws all the blocks

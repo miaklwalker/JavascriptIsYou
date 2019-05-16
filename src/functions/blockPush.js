@@ -36,16 +36,18 @@ export function pushBlock(other, keyPressed) {
 			if (block.id !== other.id) {
 				if (block.push) {
 					if (block.position.same(controls[keyPressed])) {
-						
 						let msg = new Message(
 							block.id,
 							'push',
 							block.type,
 							direction,
 						);
-						if(block.type === "is"){
+						if (block.type === 'is') {
+							console.log(
+								`Sending message to is block`,
+							);
 							console.log(block);
-							console.log(msg)
+							console.log(msg);
 						}
 						Level.msgCenter.add(msg);
 						pushBlock(block, keyPressed);

@@ -7,6 +7,7 @@ export class isBlock extends Block {
 	constructor(x, y) {
 		super(x, y, 'is', 'is');
 		this.push = true;
+
 		this.ruleOne = [];
 		this.ruleTwo = [];
 	}
@@ -16,8 +17,8 @@ export class isBlock extends Block {
 		context.font = "20px 'arial'";
 		context.fillText(
 			this.name,
-			(this.position.x * canvas.width) / cells + 6,
-			(this.position.y * canvas.height) / cells+3,
+			(this.position.x * canvas.width) / cells + 6 , 
+			(this.position.y * canvas.height) / cells + 3,
 			canvas.width / cells,
 		);
 	}
@@ -30,29 +31,29 @@ export class isBlock extends Block {
 		let neighborRight = new Vector(x + 1, y);
 		this.ruleOne = [];
 		this.ruleTwo = [];
-	nounBlocks.forEach(block=>{
-		if(neighborLeft.same(block.position)){
-			this.ruleOne.unshift(block.name);
+		nounBlocks.forEach(block => {
+			if (neighborLeft.same(block.position)) {
+				this.ruleOne.unshift(block.name);
+			}
+			if (neighborUp.same(block.position)) {
+				this.ruleTwo.unshift(block.name);
+			}
+		});
+		verbBlocks.forEach(block => {
+			if (neighborRight.same(block.position)) {
+				this.ruleOne.push(block.name);
+			}
+			if (neighborDown.same(block.position)) {
+				this.ruleTwo.push(block.name);
+			}
+		});
+		if (this.ruleOne.includes(undefined)) {
+			console.log(this.ruleOne);
+			this.ruleOne = [];
 		}
-		if(neighborUp.same(block.position)){
-			this.ruleTwo.unshift(block.name);
+		if (this.ruleTwo.includes(undefined)) {
+			console.log(this.ruleTwo);
+			this.ruleTwo = [];
 		}
-	});
-	verbBlocks.forEach(block=>{
-		if(neighborRight.same(block.position)){
-			this.ruleOne.push(block.name);
-		}
-		if(neighborDown.same(block.position)){
-			this.ruleTwo.push(block.name);
-		}
-	})
-	 if(this.ruleOne.includes(undefined)){
-		 console.log(this.ruleOne)
-	 	this.ruleOne = [];
-	 }	
-		if(this.ruleTwo.includes(undefined)){
-			console.log(this.ruleTwo)
-	 	this.ruleTwo = [];
-	 }
 	}
 }

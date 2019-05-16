@@ -4,10 +4,10 @@ import Block from "./Block.js";
 
 
 export class verbBlock extends Block {
-  constructor(x, y, name, type) {
+  constructor(x, y, name) {
     super(x, y, name, "verb");
     this.push = true;
-    this.shove= new Vector(0,0);
+
   }
   show(canvas, context, cells) {
     context.fillStyle = GameInfo.Text[this.name];

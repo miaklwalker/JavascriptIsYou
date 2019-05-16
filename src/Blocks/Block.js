@@ -1,21 +1,20 @@
-import { Vector } from "../Math/Vector.js";
-import { uniqueid } from "../functions/CreateId.js";
+import { Vector } from '../Math/Vector.js';
+import { uniqueid } from '../functions/CreateId.js';
+import { spriteBlocks } from './BlocksCache.js';
+import { win } from '../functions/win.js';
 
 export default class Block {
-    constructor(x, y, name, type , id = uniqueid()) {
-        this.position = new Vector(x, y);
+	constructor(x, y, name, type, id = uniqueid()) {
+		this.position = new Vector(x, y);
 		this.name = name;
-		this.id = id
-        this.type = type;
-		this.moveBuffer = 0;
-		this.lastMove =""
+		this.id = id;
+		this.type = type;
 
-        this.you = false;
-        this.push = false;
-        this.win = false;
-        this.stop = false;
-
-        this.shove = new Vector(0, 0);
+		this.you = false;
+		this.push = false;
+		this.win = false;
+		this.stop = false;
+		this.sink = false;
 
 		this.right = false;
 		this.left = false;
@@ -24,8 +23,8 @@ export default class Block {
 	}
 
 	move(message) {
-		if (this.you||message.to === this.id) {
-			if (message.from ==="push"||!this[message.data]) {
+if (this.you || message.to === this.id) {
+			if (message.from === 'push' || !this[message.data]) {
 				switch (message.data) {
 					case 'right':
 						this.position.x += 1;
@@ -46,7 +45,6 @@ export default class Block {
 		this.right = false;
 		this.up = false;
 		this.down = false;
-		this.moveBuffer++;
 		if (this.win) {
 			spriteBlocks.forEach(block => {
 				if (block.you) {
@@ -67,10 +65,10 @@ export default class Block {
 				}
 				break;
 
-            case 'push':
-                if(to === this.id){
-					this.move(msg)
-                }
+			case 'push':
+				if (to === this.id) {
+					this.move(msg);
+				}
 				break;
 
 			case 'movement':

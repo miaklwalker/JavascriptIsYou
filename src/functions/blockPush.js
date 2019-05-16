@@ -22,21 +22,36 @@ export function pushBlock(other, keyPressed) {
 		ArrowDown: down,
 		ArrowLeft: left,
 		ArrowRight: right,
-		
 	};
-	let direction = controls[keyPressed] === up ? "up" :
-					controls[keyPressed] === down ? "down":
-					controls[keyPressed] === left ? "left": "right"
-console.log(direction)
-	spriteBlocks.forEach(block => {
-		if (block.id !== other.id) {
-			if (block.push) {
-				if (block.position.same(controls[keyPressed])) {
-					let msg =new Message(block.id,"push","push",direction);
-					Level.msgCenter.add(msg);
-					pushBlock(block,keyPressed);
-				} 
+	let direction =
+		controls[keyPressed] === up
+			? 'up'
+			: controls[keyPressed] === down
+			? 'down'
+			: controls[keyPressed] === left
+			? 'left'
+			: 'right';
+	for (let arr of allBlocks) {
+		arr.forEach(block => {
+			if (block.id !== other.id) {
+				if (block.push) {
+					if (block.position.same(controls[keyPressed])) {
+						
+						let msg = new Message(
+							block.id,
+							'push',
+							block.type,
+							direction,
+						);
+						if(block.type === "is"){
+							console.log(block);
+							console.log(msg)
+						}
+						Level.msgCenter.add(msg);
+						pushBlock(block, keyPressed);
+					}
+				}
 			}
-		}
-	});
+		});
+	}
 }

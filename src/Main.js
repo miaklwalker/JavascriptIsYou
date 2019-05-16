@@ -21,29 +21,31 @@ export const Level = {
 
 const canvas = document.getElementById("screen");
 const context = canvas.getContext("2d");
-
-//! Game Loop
-
     
-
 function setup() {
     controls.addControls()
     draw();
 }
 function draw() {
+    // Draw BackGround
     context.drawImage(drawBackground(canvas,"black"),0,0);
-   // context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
+    // Draw Grid
+   context.drawImage(drawGrid(canvas,GameInfo.tiles),0,0);
+   // Gets level data from Level Object and makes the level
     makeLevel();
+    // Draws all the blocks
     drawBlocks(canvas,context,GameInfo.tiles)
+    // checks the rules
     blockLogic();
-   // runCollisions();
+    // sends all of the messages
     Level.msgCenter.dispatch();
-
+    // sets all of the rules
     setRules();
     Restart();
     loop(draw);
 }
 function loop(name, frameRate) {
-    setTimeout(name, 1000 / frameRate);
+    //setTimeout(name, 1000 / frameRate);
+    requestAnimationFrame(name);
 }
 setup();

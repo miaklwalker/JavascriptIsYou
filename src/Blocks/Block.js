@@ -1,5 +1,4 @@
 import { Vector } from "../Math/Vector.js";
-import { Message } from "../MessageCenter/message.js";
 import { uniqueid } from "../functions/CreateId.js";
 
 export default class Block {
@@ -25,8 +24,8 @@ export default class Block {
 	}
 
 	move(message) {
-		if (this.you) {
-			if (!this[message.data]) {
+		if (this.you||message.to === this.id) {
+			if (message.from ==="push"||!this[message.data]) {
 				switch (message.data) {
 					case 'right':
 						this.position.x += 1;
@@ -70,7 +69,7 @@ export default class Block {
 
             case 'push':
                 if(to === this.id){
-                    this.move(msg);
+					this.move(msg)
                 }
 				break;
 

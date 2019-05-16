@@ -31,34 +31,14 @@ export const GameInfo = {
     },
 
     Levels: {
-        debug: {
-            blocks: {
-                horizantal: [[4, 9, 9, "wall"]],
-                Vertical: [[9, 9, 12, "wall"]],
-                Sprites: [
-                    ,
-                    [12, 15, "baba"],
-                    [13, 15, "rock"],
-                    [17, 15, "water"],
-                ],
-                Verbs: [
-                    [6, 15, "push"],
-                    [5, 16, "you"],
-                    [7, 17, "stop"],
-                    [9, 12, "sink"],
-                ],
-                Nouns: [[7, 12, "water"], [4, 15, "wall"], [5, 14, "baba"]],
-                is: [[5, 15], [8, 12]],
-            },
-        },
         0: {
             blocks: {
-                horizantal: [[4, 9, 9, "wall", "Sprite"]],
-                Vertical: [],
-                Sprites: [, [12, 15, "baba", "Sprite"]],
-                Verbs: [[6, 15, "push", "verb"], [5, 16, "you", "verb"]],
-                Nouns: [[4, 15, "baba", "noun"], [5, 14, "wall", "noun"]],
-                is: [[5, 15]],
+                horizantal: [[4, 9, 9, "wall", "Sprite"],[0,4,20,"water","Sprite"]],
+                Vertical: [[10,10,15,"rock","Sprite"]],
+                Sprites: [[12, 15, "baba", "Sprite"]],
+                Verbs: [[6, 15, "stop", "verb"], [5, 16, "you", "verb"],[16,15,"push","verb"],[14,17,"sink","verb"]],
+                Nouns: [[4, 15, "wall", "noun"], [5, 14, "baba", "noun"],[14,15,"rock","noun"],[16,17,"water","noun"]],
+                is: [[5, 15],[15,15],[15,17]],
             },
         },
         1: {
@@ -135,9 +115,9 @@ export const GameInfo = {
                     [5, 11, 16, "flag", "Sprite"],
                     [5, 7, 10, "flag", "sprite"],
                     [9, 17, 16, "flag", "sprite"],
-                    [6, 8, 10, "floor", "sprite"],
-                    [6, 9, 10, "floor", "sprite"],
-                    [6, 10, 10, "floor", "sprite"],
+                   // [6, 8, 10, "floor", "sprite"],
+                    //[6, 9, 10, "floor", "sprite"],
+                    //[6, 10, 10, "floor", "sprite"],
                 ],
                 Vertical: [
                     [9, 4, 7, "flag", "Sprite"],

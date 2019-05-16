@@ -58,7 +58,7 @@ export let controls = {
 				if(event.code === "KeyR"){
 					Restart(true);
 				}
-				runCollisions();
+				runCollisions(event.code);
 				let msg = new Message(
 					'controls',
 					'EventListener',

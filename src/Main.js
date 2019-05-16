@@ -14,7 +14,7 @@ import { MessageQueue } from "./MessageCenter/MessageQueue.js";
 
 
 export const Level = { 
-    num: "debug",
+    num: 0,
     msgCenter: new MessageQueue(),
 
 };

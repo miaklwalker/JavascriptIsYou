@@ -10,7 +10,7 @@ export class MessageQueue{
             this.messages.push(msg);
       }
       addEntities(){
-            for(let i = 0 ; i < 3;i++){
+            for(let i = 0 ; i < 4;i++){
                   allBlocks[i].forEach(block=>this.entities.push(block));
             }
             controls.addControls
@@ -20,11 +20,11 @@ export class MessageQueue{
             for(let i = 0 ; i < this.messages.length ; i++){
                   let msg = this.messages[i];
                   this.entities.forEach(entity=>{
-                        // console.info(`
-                        // Message From : ${msg.from}. 
-                        // Message To : ${msg.to}  
-                        // Type: ${msg.type} 
-                        // Data: ${msg.data} `);
+                        console.info(`
+                        Message From : ${msg.from}. 
+                        Message To : ${msg.to}  
+                        Type: ${msg.type} 
+                        Data: ${msg.data} `);
                         entity.onMessage(msg);
                   })
                   this.messages.splice(i,1);

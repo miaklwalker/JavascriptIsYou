@@ -23,6 +23,7 @@ export default class Block {
 	}
 
 	move(message) {
+
 		if (this.you || message.to === this.id) {
 			if (message.from === 'push' || !this[message.data]) {
 				switch (message.data) {
@@ -56,10 +57,14 @@ export default class Block {
 		}
 		if(this.sink){
 			for(let i = 0 ; i < spriteBlocks.length ; i++){
-				if(this.position.same(spriteBlocks[i].position)){
-					console.log('you sunk')
+				let block = spriteBlocks[i]
+				if(this.position.same(block.position)&& this.id !== block.id){
 					spriteBlocks.splice(i,1);
+					if(this.id === block.id){
+						console.log(this.name);
+					}
 				}
+				
 			}
 		}
 	}
@@ -74,9 +79,6 @@ export default class Block {
 				break;
 
 			case 'push':
-			if(msg.to === this.id){
-				console.log(this.name);
-			}
 				if (to === this.id) {
 					this.move(msg);
 				}

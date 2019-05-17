@@ -54,6 +54,14 @@ export default class Block {
 				}
 			});
 		}
+		if(this.sink){
+			for(let i = 0 ; i < spriteBlocks.length ; i++){
+				if(this.position.same(spriteBlocks[i].position)){
+					console.log('you sunk')
+					spriteBlocks.splice(i,1);
+				}
+			}
+		}
 	}
 	onMessage(msg) {
 		let from = msg.from;

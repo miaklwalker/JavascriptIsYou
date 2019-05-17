@@ -13,7 +13,7 @@ import { MessageQueue } from "./MessageCenter/MessageQueue.js";
 
 
 export const Level = { 
-    num: 1,
+    num: 0,
     msgCenter: new MessageQueue(),
 
 };

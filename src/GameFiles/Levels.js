@@ -31,17 +31,30 @@ export const GameInfo = {
     },
 
     Levels: {
-        0: {
+        "debug": {
             blocks: {
-                horizantal: [[4, 9, 9, "wall", "Sprite"],[0,4,20,"water","Sprite"]],
-                Vertical: [[10,10,15,"rock","Sprite"]],
+                horizantal: [
+                    [4, 9, 9, "wall", "Sprite"],
+                    [0, 4, 20, "water", "Sprite"],
+                ],
+                Vertical: [[10, 10, 15, "rock", "Sprite"]],
                 Sprites: [[12, 15, "baba", "Sprite"]],
-                Verbs: [[6, 15, "stop", "verb"], [5, 16, "you", "verb"],[16,15,"push","verb"],[16,17,"sink","verb"]],
-                Nouns: [[4, 15, "wall", "noun"], [5, 14, "baba", "noun"],[14,15,"rock","noun"],[14,17,"water","noun"]],
-                is: [[5, 15],[15,15],[15,17]],
+                Verbs: [
+                    [6, 15, "stop", "verb"],
+                    [5, 16, "you", "verb"],
+                    [16, 15, "push", "verb"],
+                    [16, 17, "sink", "verb"],
+                ],
+                Nouns: [
+                    [4, 15, "wall", "noun"],
+                    [5, 14, "baba", "noun"],
+                    [14, 15, "rock", "noun"],
+                    [14, 17, "water", "noun"],
+                ],
+                is: [[5, 15], [15, 15], [15, 17]],
             },
         },
-        1: {
+        0: {
             blocks: {
                 horizantal: [
                     //[4, 9, 9, "floor", "Sprite"],
@@ -75,7 +88,7 @@ export const GameInfo = {
             },
         },
 
-        2: {
+        1: {
             blocks: {
                 horizantal: [
                     [9, 3, 16, "wall", "Sprite"],
@@ -97,48 +110,71 @@ export const GameInfo = {
                 Sprites: [[11, 9, "flag", "noun"], [13, 14, "baba", "noun"]],
                 Verbs: [
                     [13, 7, "win", "verb"],
-                    [5, 16, "you", "verb"],
+                    [6, 15, "you", "verb"],
                     [11, 15, "stop", "verb"],
                 ],
                 Nouns: [
                     [7, 9, "flag", "noun"],
-                    [5, 14, "baba", "noun"],
+                    [6, 13, "baba", "noun"],
                     [11, 13, "wall", "noun"],
                 ],
-                is: [[11, 5], [5, 15], [11, 14]],
+                is: [[11, 5], [6, 14], [11, 14]],
             },
         },
-        3: {
+        2: {
             blocks: {
                 horizantal: [
-                    [9, 3, 16, "flag", "Sprite"],
+                    [9, 3, 17, "flag", "Sprite"],
                     [5, 11, 16, "flag", "Sprite"],
                     [5, 7, 10, "flag", "sprite"],
-                    [9, 17, 16, "flag", "sprite"],
-                   // [6, 8, 10, "floor", "sprite"],
+                    [9, 17, 14, "flag", "sprite"],
+                    [13, 16, 17, "flag", "Sprite"],
+                    // [6, 8, 10, "floor", "sprite"],
                     //[6, 9, 10, "floor", "sprite"],
                     //[6, 10, 10, "floor", "sprite"],
                 ],
                 Vertical: [
                     [9, 4, 7, "flag", "Sprite"],
-                    [15, 4, 12, "flag", "Sprite"],
+                    [16, 4, 12, "flag", "Sprite"],
                     [5, 8, 12, "flag", "Sprite"],
                     [9, 12, 17, "flag", "Sprite"],
-                    [15, 12, 17, "flag", "Sprite"],
+                    [16, 12, 16, "flag", "Sprite"],
                 ],
 
                 Sprites: [, [13, 14, "wall", "noun"]],
                 Verbs: [
                     [13, 7, "win", "verb"],
-                    [5, 16, "you", "verb"],
+                    [6, 15, "you", "verb"],
                     [11, 15, "stop", "verb"],
                 ],
                 Nouns: [
                     [7, 9, "baba", "noun"],
-                    [5, 14, "wall", "noun"],
+                    [6, 13, "wall", "noun"],
                     [11, 13, "flag", "noun"],
                 ],
-                is: [[11, 5], [5, 15], [11, 14]],
+                is: [[11, 5], [6, 14], [11, 14]],
+            },
+        },
+        3: {
+            blocks: {
+                horizantal: [
+                    [0,3,2,"wall","Sprite"],
+                    [7,2,13,"wall","Sprite"]
+                ],
+                Vertical: [
+                    [2,0,4,"wall","Sprite"]
+                ],
+
+                Sprites: [],
+                Verbs: [
+                   [0,2,"you","verb"],
+                   [1,2,"stop","verb"],
+                ],
+                Nouns: [
+                   [0,0,"baba","noun"],
+                   [1,0,"wall","noun"]
+                ],
+                is: [[1,1],[0,1]],
             },
         },
     },

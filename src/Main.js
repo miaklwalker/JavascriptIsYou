@@ -15,12 +15,14 @@ let baba = GameInfo.Sprites.flag
 
 
 export const Level = { 
-    num: 0,
+    num: 3,
     msgCenter: new MessageQueue(),
 
 };
 
 const canvas = document.getElementById("screen");
+canvas.width=window.innerHeight;
+canvas.height= window.innerHeight;
 const context = canvas.getContext("2d");
     
 function setup() {

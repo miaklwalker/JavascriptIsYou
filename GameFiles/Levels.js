@@ -176,10 +176,13 @@ export const GameInfo = {
             blocks: {
                 horizantal: [
                     [0,3,2,"wall","Sprite"],
-                    [7,2,13,"wall","Sprite"]
+                    [7,2,15,"wall","Sprite"],
+                    [4,9,8,"wall","Sprite"],
                 ],
                 Vertical: [
-                    [2,0,4,"wall","Sprite"]
+                    [2,0,4,"wall","Sprite"],
+                    [7,3,9,'wall','Sprite'],
+                    [14,3,9,'wall','Sprite']
                 ],
 
                 Sprites: [],

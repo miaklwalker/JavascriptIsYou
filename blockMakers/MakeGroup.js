@@ -3,7 +3,7 @@
 
 import { makeColumns } from "./MakeColumns.js";
 import { makeRows } from "./MakeRows.js";
-import { Level } from "../Main.js";
+import { Level } from "../src/Main.js";
 import { GameInfo } from "../GameFiles/Levels.js";
 
 export function addGroup() {

@@ -1,7 +1,7 @@
 import { Vector } from "../Math/Vector.js";
 import { spriteBlocks } from "../blocks/BlocksCache.js";
 import { Message } from "../MessageCenter/message.js";
-import { Level } from "../Main.js";
+import { Level } from "../src/Main.js";
 
 export function SpriteCollision(other) {
     let x = other.position.x;

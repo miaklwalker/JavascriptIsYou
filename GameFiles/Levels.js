@@ -1,5 +1,22 @@
 export const GameInfo = {
     Rules: ["you", "push", "win", "stop", "sink"],
+    Sprites:{
+        baba:[0, 0,25,24],
+        rock:[360,504,27,25],
+        wall:[390,1518,12,12],
+        flag:[143,503,25,25]
+    },
+    textSprites:{
+        baba: [142,647,25,25],
+        rock: [240,792,25,25],
+        wall: [623,792,25,25],
+        flag: [45,720,25,25],
+        is:[408,720,25,25],
+        stop:[240,1008,25,25],
+        push:[0,1008,25,25],
+        win:[359,1008,25,25],
+        you:[432,1008,25,25],
+    },
     drawn: {
         level: false,
         background: false,

@@ -1,6 +1,6 @@
 import { Message } from '../MessageCenter/message.js';
-import { Level } from '../Main.js';
-import { runCollisions } from './collision.js';
+import { Level } from '../src/Main.js';
+import { runCollisions } from '../blockFunctions/collision.js';
 import { Restart } from './Restart.js';
 
 export let controls = {

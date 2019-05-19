@@ -1,7 +1,7 @@
 import { allBlocks } from '../blocks/BlocksCache.js';
 import { Vector } from '../Math/Vector.js';
 import { Message } from '../MessageCenter/message.js';
-import { Level } from '../Main.js';
+import { Level } from '../src/Main.js';
 
 export function pushBlock(other, keyPressed) {
 	// other = you

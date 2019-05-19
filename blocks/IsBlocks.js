@@ -2,6 +2,7 @@ import { Vector } from '../Math/Vector.js';
 import Block from './Block.js';
 import { GameInfo } from '../GameFiles/Levels.js';
 import { nounBlocks, verbBlocks } from './BlocksCache.js';
+import { loader } from '../loaders/ImageLoader.js';
 
 export class isBlock extends Block {
 	constructor(x, y) {
@@ -11,16 +12,18 @@ export class isBlock extends Block {
 		this.ruleOne = [];
 		this.ruleTwo = [];
 	}
-	show(canvas, context, cells) {
+	show(canvas, context, Cells) {
 		context.fillStyle = GameInfo.Text[this.name];
 		context.textBaseline = 'top';
 		context.font = "20px 'arial'";
-		context.fillText(
-			this.name,
-			(this.position.x * canvas.width) / cells + 6 , 
-			(this.position.y * canvas.height) / cells + 3,
-			canvas.width / cells,
-		);
+		// context.fillText(
+		// 	this.name,
+		// 	(this.position.x * canvas.width) / cells + 6 , 
+		// 	(this.position.y * canvas.height) / cells + 3,
+		// 	canvas.width / cells,
+		// );
+		context.drawImage(loader(GameInfo.textSprites[this.name],GameInfo.Text[this.name]),this.position.x*canvas.width/Cells,this.position.y*canvas.height/Cells,canvas.width/Cells,canvas.height/Cells)
+
 	}
 	rules() {
 		let x = this.position.x;

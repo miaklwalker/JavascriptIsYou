@@ -9,7 +9,7 @@ import NounBlock from "../blocks/NounBlock.js";
 import { verbBlock } from "../blocks/VerbBlocks.js";
 import { isBlock } from "../blocks/IsBlocks.js";
 import { SpriteBlock } from "../blocks/SpriteBlocks.js";
-import { Level } from "../Main.js";
+import { Level } from "../src/Main.js";
 
 
 

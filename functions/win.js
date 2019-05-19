@@ -1,4 +1,4 @@
-import { Level } from "../Main.js";
+import { Level } from "../src/Main.js";
 import { GameInfo } from "../GameFiles/Levels.js";
 import { Restart } from "./Restart.js";
 

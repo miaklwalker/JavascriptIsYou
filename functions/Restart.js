@@ -6,7 +6,7 @@ import {
 } from "../blocks/BlocksCache.js";
 import { GameInfo } from "../GameFiles/Levels.js";
 import { controls } from "./Controls.js";
-import { Level } from "../Main.js";
+import { Level } from "../src/Main.js";
 
 export function Restart(lvlChange = false) {
     if (controls.KeyR || lvlChange) {

@@ -15,6 +15,7 @@ export default class Block {
 		this.win = false;
 		this.stop = false;
 		this.sink = false;
+		this.sunk = false;
 
 		this.right = false;
 		this.left = false;
@@ -23,7 +24,6 @@ export default class Block {
 	}
 
 	move(message) {
-
 		if (this.you || message.to === this.id) {
 			if (message.from === 'push' || !this[message.data]) {
 				switch (message.data) {
@@ -55,16 +55,22 @@ export default class Block {
 				}
 			});
 		}
-		if(this.sink){
-			for(let i = 0 ; i < spriteBlocks.length ; i++){
-				let block = spriteBlocks[i]
-				if(this.position.same(block.position)&& this.id !== block.id){
-					spriteBlocks.splice(i,1);
-					if(this.id === block.id){
-						console.log(this.name);
+		if (this.sink) {
+			if (!this.sunk) {
+				for (let i = 0; i < spriteBlocks.length; i++) {
+					let block = spriteBlocks[i];
+					if (
+						this.position.same(block.position) &&
+						this.id !== block.id
+					) {
+						spriteBlocks.splice(i, 1);
+						spriteBlocks.splice(
+							spriteBlocks.indexOf(this),
+							1,
+						);
+						this.sunk = true;
 					}
 				}
-				
 			}
 		}
 	}

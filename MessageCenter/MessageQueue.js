@@ -20,11 +20,6 @@ export class MessageQueue{
             for(let i = 0 ; i < this.messages.length ; i++){
                   let msg = this.messages[i];
                   this.entities.forEach(entity=>{
-                        console.info(`
-                        Message From : ${msg.from}. 
-                        Message To : ${msg.to}  
-                        Type: ${msg.type} 
-                        Data: ${msg.data} `);
                         entity.onMessage(msg);
                   })
                   this.messages.splice(i,1);

@@ -1,5 +1,5 @@
 import memoize from '../functions/cache.js';
-import { GameInfo } from '../GameFiles/Levels.js';
+import tint from '../functions/tint.js';
 
 function loadImage(url) {
 	return new Promise(resolve => {
@@ -19,19 +19,7 @@ function load([x, y, w, h], color) {
 	let ctx = buffer.getContext('2d');
 
 	loadImage(location).then(img => {
-		/*
-        All Sprites are black & white 
-        This is a very simple tint function 
-        to add custom color to sprites
-        */
-		ctx.clearRect(0, 0, 25, 25);
-		ctx.globalCompositeOperation = 'source-over';
-		ctx.fillStyle = color;
-		ctx.fillRect(0, 0, 25, 25);
-		ctx.globalCompositeOperation = 'destination-in';
-		ctx.drawImage(img, x, y, w, h, 0, 0, 25, 25);
-		ctx.globalCompositeOperation = 'darken';
-		ctx.drawImage(img, x, y, w, h, 0, 0, 25, 25);
+		tint([x, y, w, h], img, color, ctx);
 	});
 
 	return buffer;

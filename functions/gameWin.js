@@ -1,8 +1,8 @@
-export default function gameWin(canvas,context){
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.fillStyle = 'black';
-      context.fillRect(0, 0, canvas.width, canvas.height);
-      context.fillStyle = 'gold';
-      context.font = '128px , sans';
-      context.fillText('YOU WIN!', canvas.width / 2-40, canvas.height / 2);
+export default function gameWin(canvas, context) {
+	context.clearRect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = 'black';
+	context.fillRect(0, 0, canvas.width, canvas.height);
+	context.fillStyle = 'gold';
+	context.font = '128px , sans';
+	context.fillText('YOU WIN!', canvas.width / 2 - 40, canvas.height / 2);
 }

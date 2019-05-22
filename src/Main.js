@@ -10,13 +10,13 @@ import { MessageQueue } from '../MessageCenter/MessageQueue.js';
 import gameWin from '../functions/gameWin.js';
 
 export const Level = {
-	num: 4,
+	num: 0,
 	msgCenter: new MessageQueue(),
 };
 
 const canvas = document.getElementById('screen');
 canvas.width = window.innerHeight;
-canvas.height = window.innerHeight*.9;
+canvas.height = window.innerHeight * 0.9;
 const context = canvas.getContext('2d');
 
 function setup() {
@@ -40,7 +40,7 @@ function draw() {
 		Restart();
 		loop(draw);
 	} else {
-		gameWin(canvas,context)
+		gameWin(canvas, context);
 	}
 }
 function loop(name) {

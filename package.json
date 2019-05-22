@@ -1,19 +1,19 @@
 {
-  "name": "browserisyou",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.html",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/miaklwalker/BabaIsYou-HTML-JAVASCRIPT-CSS.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/miaklwalker/BabaIsYou-HTML-JAVASCRIPT-CSS/issues"
-  },
-  "homepage": "https://github.com/miaklwalker/BabaIsYou-HTML-JAVASCRIPT-CSS#readme"
+	"name": "browserisyou",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.html",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/miaklwalker/BabaIsYou-HTML-JAVASCRIPT-CSS.git"
+	},
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/miaklwalker/BabaIsYou-HTML-JAVASCRIPT-CSS/issues"
+	},
+	"homepage": "https://github.com/miaklwalker/BabaIsYou-HTML-JAVASCRIPT-CSS#readme"
 }

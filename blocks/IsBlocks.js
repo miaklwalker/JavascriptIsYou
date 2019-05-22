@@ -13,8 +13,16 @@ export class isBlock extends Block {
 		this.ruleTwo = [];
 	}
 	show(canvas, context, Cells) {
-		context.drawImage(loader(GameInfo.textSprites[this.name],GameInfo.Text[this.name]),this.position.x*canvas.width/Cells,this.position.y*canvas.height/Cells,canvas.width/Cells,canvas.height/Cells)
-
+		context.drawImage(
+			loader(
+				GameInfo.textSprites[this.name],
+				GameInfo.Text[this.name],
+			),
+			(this.position.x * canvas.width) / Cells,
+			(this.position.y * canvas.height) / Cells,
+			canvas.width / Cells,
+			canvas.height / Cells,
+		);
 	}
 	rules() {
 		let x = this.position.x;

@@ -55,7 +55,7 @@ export let controls = {
 		document.addEventListener('keydown', event => {
 			if (Object.keys(this).includes(`${event.code}`)) {
 				event.preventDefault();
-				if(event.code === "KeyR"){
+				if (event.code === 'KeyR') {
 					Restart(true);
 				}
 				runCollisions(event.code);

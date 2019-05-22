@@ -12,7 +12,7 @@ export function pushBlock(other, keyPressed) {
 	let right = new Vector(x + 1, y);
 	let up = new Vector(x, y - 1);
 	let down = new Vector(x, y + 1);
-	
+
 	let controls = {
 		KeyW: up,
 		KeyS: down,

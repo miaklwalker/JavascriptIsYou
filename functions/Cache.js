@@ -1,3 +1,8 @@
+/*
+NOT MY CODE 
+From a memoization library
+https://github.com/caiogondim/fast-memoize.js
+*/
 function memoize (fn, options) {
     var cache = options && options.cache
       ? options.cache

@@ -1,6 +1,4 @@
 import { nounBlocks, verbBlocks, operatorBlocks, spriteBlocks } from "../blocks/BlocksCache.js";
-import { collisionHelper } from "../debugTools/Hitboxes.js";
-
 export function drawBlocks(canvas, context, cells) {
         drawNouns(canvas,context,cells);
         drawVerbs(canvas,context,cells);
@@ -26,8 +24,6 @@ function drawOperators(canvas,context,cells){
 }
 function drawSprites(canvas,context,cells){
     spriteBlocks.forEach(block =>{
-        block.show(canvas,context,cells);
-       // collisionHelper(block,context,canvas,cells);
-    })
+        block.show(canvas,context,cells)})
 
 }

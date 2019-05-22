@@ -1,5 +1,4 @@
 import { drawBackground } from '../draw/DrawBackground.js';
-//import { drawGrid } from "./debugTools/GridLines.js";
 import { GameInfo } from '../GameFiles/Levels.js';
 import { makeLevel } from '../blockMakers/MakeLevel.js';
 import { drawBlocks } from '../draw/DrawBlocks.js';
@@ -8,10 +7,7 @@ import { controls } from '../functions/Controls.js';
 import { setRules } from '../GameFiles/Rules.js';
 import { Restart } from '../functions/Restart.js';
 import { MessageQueue } from '../MessageCenter/MessageQueue.js';
-import { loader } from '../loaders/ImageLoader.js';
-//import { gridGuide } from "./debugTools/DrawNumber.js";
-
-let baba = GameInfo.Sprites.flag;
+import gameWin from '../functions/gameWin.js';
 
 export const Level = {
 	num: 4,
@@ -44,12 +40,7 @@ function draw() {
 		Restart();
 		loop(draw);
 	} else {
-		context.clearRect(0, 0, canvas.width, canvas.height);
-		context.fillStyle = 'black';
-		context.fillRect(0, 0, canvas.width, canvas.height);
-		context.fillStyle = 'gold';
-		context.font = '128px , sans';
-		context.fillText('YOU WIN!', canvas.width / 2-40, canvas.height / 2);
+		gameWin()
 	}
 }
 function loop(name) {

@@ -16,7 +16,7 @@ export const Level = {
 
 const canvas = document.getElementById('screen');
 canvas.width = window.innerHeight;
-canvas.height = window.innerHeight;
+canvas.height = window.innerHeight*.9;
 const context = canvas.getContext('2d');
 
 function setup() {
@@ -30,7 +30,7 @@ function draw() {
 		// Gets level data from Level Object and makes the level
 		makeLevel();
 		// Draws all the blocks
-		drawBlocks(canvas, context, GameInfo.tiles);
+		drawBlocks(canvas, context, GameInfo.Levels[Level.num].tiles);
 		// checks the rules
 		blockLogic();
 		// sends all of the messages
@@ -40,7 +40,7 @@ function draw() {
 		Restart();
 		loop(draw);
 	} else {
-		gameWin()
+		gameWin(canvas,context)
 	}
 }
 function loop(name) {

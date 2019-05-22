@@ -2,6 +2,7 @@ import { Vector } from '../Math/Vector.js';
 import { uniqueid } from '../functions/CreateId.js';
 import { spriteBlocks } from './BlocksCache.js';
 import { win } from '../functions/win.js';
+import { GameInfo } from '../GameFiles/Levels.js';
 
 export default class Block {
 	constructor(x, y, name, type, id = uniqueid()) {
@@ -55,7 +56,6 @@ export default class Block {
 	}
 	delete() {
 		if (this.defeat) {
-			console.log(this)
 			for (let i = 0; i < spriteBlocks.length; i++) {
 				let block = spriteBlocks[i];
 				if (
@@ -66,6 +66,12 @@ export default class Block {
 				}
 			}
 		}
+	}
+	edges(){
+		if(this.position.x>=GameInfo.Levels.tiles){this.position.x = GameInfo.Levels.tiles}
+		if(this.position.x<0){this.position.x=0}
+		if(this.position.y>=GameInfo.Levels.tiles){this.position.y = GameInfo.Levels.tiles}
+		if(this.position.y<0){this.position.y=0}
 	}
 	move(message) {
 		if (this.you || message.to === this.id) {
@@ -90,6 +96,7 @@ export default class Block {
 		this.right = false;
 		this.up = false;
 		this.down = false;
+		this.edges()
 		this.winLevel();
 		this.sinkBlock();
 		this.delete();

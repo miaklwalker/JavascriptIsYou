@@ -79,6 +79,7 @@ export const GameInfo = {
 				],
 				is: [[5, 15], [15, 15], [15, 17]],
 			},
+			tiles: 20,
 		},
 		0: {
 			blocks: {
@@ -106,6 +107,7 @@ export const GameInfo = {
 				],
 				is: [[13, 6], [5, 6], [5, 14], [13, 14]],
 			},
+			tiles: 20,
 		},
 
 		1: {
@@ -140,6 +142,7 @@ export const GameInfo = {
 				],
 				is: [[11, 5], [6, 14], [11, 14]],
 			},
+			tiles: 20,
 		},
 		2: {
 			blocks: {
@@ -171,6 +174,7 @@ export const GameInfo = {
 				],
 				is: [[11, 5], [6, 14], [11, 14]],
 			},
+			tiles: 20,
 		},
 		3: {
 			blocks: {
@@ -218,32 +222,52 @@ export const GameInfo = {
 				],
 				is: [[1, 1], [0, 1], [6, 7],[14,11],[14,14]],
 			},
+			tiles: 20,
 		},
 		4: {
 			blocks: {
 				horizantal: [
-					
+					[12, 7, 21, 'skull', 'Sprite'],
+					[12, 16, 21, 'skull', 'Sprite'],
+					[3, 18, 6, 'skull', 'Sprite'],
+					[7, 18, 10, 'skull', 'Sprite'],
+
 				],
 				Vertical: [
-					
+					[12, 7, 16, 'skull', 'Sprite'],
+					[20, 7,16, 'skull', 'Sprite'],
+					[3, 18, 24, 'skull', 'Sprite'],
+					[9, 18, 24, 'skull', 'Sprite'],
+					[5, 15, 18, 'skull', 'Sprite'],
+					[7, 15, 18, 'skull', 'Sprite'],
 				],
 
 				Sprites: [
-					[9, 4, 'baba', 'Sprite'],
-
+					[6, 20, 'baba', 'Sprite'],
+					[6, 15, 'rock', 'Sprite'],
+					[6, 16, 'rock', 'Sprite'],
+					[6, 17, 'rock', 'Sprite'],
+					[17, 14, 'flag', 'Sprite']
 				],
 				Verbs: [
-					[0, 2, 'you', 'verb'],
+					[2, 1, 'you', 'verb'],
+					[2, 0, 'win', 'verb'],
+					[4, 10, 'push', 'verb'],
+					[14, 12, 'defeat', 'verb'],
 
 				],
 				Nouns: [
-					[0, 0, 'baba', 'noun'],
+					[0, 0, 'flag', 'noun'],
+					[14, 10, 'skull', 'noun'],
+					[2, 10, 'rock', 'noun'],
+					[0, 1, 'baba', 'noun'],
 				],
-				is: [[0, 1]],
+				is: [[1, 0],[1, 1],[3, 10],[14, 11]],
 			},
+			tiles: 25,
 		},
 	},
-	tiles: 20,
+	
 };
 
 

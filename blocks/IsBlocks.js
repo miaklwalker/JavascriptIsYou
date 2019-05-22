@@ -13,15 +13,6 @@ export class isBlock extends Block {
 		this.ruleTwo = [];
 	}
 	show(canvas, context, Cells) {
-		context.fillStyle = GameInfo.Text[this.name];
-		context.textBaseline = 'top';
-		context.font = "20px 'arial'";
-		// context.fillText(
-		// 	this.name,
-		// 	(this.position.x * canvas.width) / cells + 6 , 
-		// 	(this.position.y * canvas.height) / cells + 3,
-		// 	canvas.width / cells,
-		// );
 		context.drawImage(loader(GameInfo.textSprites[this.name],GameInfo.Text[this.name]),this.position.x*canvas.width/Cells,this.position.y*canvas.height/Cells,canvas.width/Cells,canvas.height/Cells)
 
 	}

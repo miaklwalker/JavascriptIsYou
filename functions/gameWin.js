@@ -1,4 +1,4 @@
-export default function gameWin(){
+export default function gameWin(canvas,context){
       context.clearRect(0, 0, canvas.width, canvas.height);
       context.fillStyle = 'black';
       context.fillRect(0, 0, canvas.width, canvas.height);

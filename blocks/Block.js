@@ -16,13 +16,57 @@ export default class Block {
 		this.stop = false;
 		this.sink = false;
 		this.sunk = false;
-
+		this.defeat = false;
 		this.right = false;
 		this.left = false;
 		this.up = false;
 		this.down = false;
 	}
-
+	sinkBlock() {
+		if (this.sink) {
+			if (!this.sunk) {
+				for (let i = 0; i < spriteBlocks.length; i++) {
+					let block = spriteBlocks[i];
+					if (
+						this.position.same(block.position) &&
+						this.id !== block.id
+					) {
+						spriteBlocks.splice(i, 1);
+						spriteBlocks.splice(
+							spriteBlocks.indexOf(this),
+							1,
+						);
+						this.sunk = true;
+					}
+				}
+			}
+		}
+	}
+	winLevel() {
+		if (this.win) {
+			spriteBlocks.forEach(block => {
+				if (block.you) {
+					if (block.position.same(this.position)) {
+						win();
+					}
+				}
+			});
+		}
+	}
+	delete() {
+		if (this.defeat) {
+			console.log(this)
+			for (let i = 0; i < spriteBlocks.length; i++) {
+				let block = spriteBlocks[i];
+				if (
+					this.position.same(block.position) &&
+					this.id !== block.id && block.you
+				) {
+					spriteBlocks.splice(i, 1);
+				}
+			}
+		}
+	}
 	move(message) {
 		if (this.you || message.to === this.id) {
 			if (message.from === 'push' || !this[message.data]) {
@@ -46,33 +90,9 @@ export default class Block {
 		this.right = false;
 		this.up = false;
 		this.down = false;
-		if (this.win) {
-			spriteBlocks.forEach(block => {
-				if (block.you) {
-					if (block.position.same(this.position)) {
-						win();
-					}
-				}
-			});
-		}
-		if (this.sink) {
-			if (!this.sunk) {
-				for (let i = 0; i < spriteBlocks.length; i++) {
-					let block = spriteBlocks[i];
-					if (
-						this.position.same(block.position) &&
-						this.id !== block.id
-					) {
-						spriteBlocks.splice(i, 1);
-						spriteBlocks.splice(
-							spriteBlocks.indexOf(this),
-							1,
-						);
-						this.sunk = true;
-					}
-				}
-			}
-		}
+		this.winLevel();
+		this.sinkBlock();
+		this.delete();
 	}
 	onMessage(msg) {
 		let from = msg.from;

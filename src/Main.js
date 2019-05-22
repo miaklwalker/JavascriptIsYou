@@ -14,7 +14,7 @@ import { loader } from '../loaders/ImageLoader.js';
 let baba = GameInfo.Sprites.flag;
 
 export const Level = {
-	num: 3,
+	num: 4,
 	msgCenter: new MessageQueue(),
 };
 
@@ -28,7 +28,7 @@ function setup() {
 	draw();
 }
 function draw() {
-	if (Level.num < 4) {
+	if (Level.num < 5) {
 		// Draw BackGround
 		context.drawImage(drawBackground(canvas, 'black'), 0, 0);
 		// Gets level data from Level Object and makes the level

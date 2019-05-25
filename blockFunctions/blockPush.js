@@ -4,10 +4,8 @@ import { Message } from '../MessageCenter/message.js';
 import { Level } from '../src/Main.js';
 
 export function pushBlock(other, keyPressed) {
-	// other = you
 	let x = other.position.x;
 	let y = other.position.y;
-	// cardinal directions
 	let left = new Vector(x - 1, y);
 	let right = new Vector(x + 1, y);
 	let up = new Vector(x, y - 1);

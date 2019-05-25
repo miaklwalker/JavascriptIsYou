@@ -18,6 +18,7 @@ export default class Block {
 		this.sink = false;
 		this.sunk = false;
 		this.defeat = false;
+		
 		this.right = false;
 		this.left = false;
 		this.up = false;

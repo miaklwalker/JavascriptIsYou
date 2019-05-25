@@ -235,8 +235,8 @@ export const GameInfo = {
 				Vertical: [
 					[12, 7, 16, 'skull', 'Sprite'],
 					[20, 7, 16, 'skull', 'Sprite'],
-					[3, 18, 24, 'skull', 'Sprite'],
-					[9, 18, 24, 'skull', 'Sprite'],
+					[3, 18, 25, 'skull', 'Sprite'],
+					[9, 18, 25, 'skull', 'Sprite'],
 					[5, 15, 18, 'skull', 'Sprite'],
 					[7, 15, 18, 'skull', 'Sprite'],
 				],

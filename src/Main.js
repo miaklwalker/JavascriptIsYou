@@ -43,6 +43,7 @@ function draw() {
 		gameWin(canvas, context);
 	}
 }
+
 function loop(name) {
 	requestAnimationFrame(name);
 }

@@ -40,13 +40,6 @@ export function pushBlock(other, keyPressed) {
 							block.type,
 							direction,
 						);
-						if (block.type === 'is') {
-							console.log(
-								`Sending message to is block`,
-							);
-							console.log(block);
-							console.log(msg);
-						}
 						Level.msgCenter.add(msg);
 						pushBlock(block, keyPressed);
 					}

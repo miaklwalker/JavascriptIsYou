@@ -10,7 +10,7 @@ export class SpriteBlock extends Block {
 		context.fillStyle = GameInfo.Sprite[this.name];
 		context.drawImage(
 			loader(
-				GameInfo.Sprites[this.name],
+				GameInfo.Sprites[this.name][this.frame%5],
 				GameInfo.Sprite[this.name],
 			),
 			(this.position.x * canvas.width) / Cells,

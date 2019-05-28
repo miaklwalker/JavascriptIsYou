@@ -11,6 +11,8 @@ export default class Block {
 		this.id = id;
 		this.type = type;
 
+		this.frame = 0;
+		
 		this.you = false;
 		this.push = false;
 		this.win = false;
@@ -90,6 +92,9 @@ export default class Block {
 					case 'down':
 						this.position.y += 1;
 						break;
+				}
+				if(this.you){
+				this.frame++
 				}
 			}
 		}

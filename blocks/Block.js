@@ -12,7 +12,9 @@ export default class Block {
 		this.type = type;
 
 		this.frame = 0;
-		
+		this.wait = 0;
+		this.previousDirection='up'
+		this.direction='up'
 		this.you = false;
 		this.push = false;
 		this.win = false;
@@ -82,19 +84,28 @@ export default class Block {
 				switch (message.data) {
 					case 'right':
 						this.position.x += 1;
+						this.direction='right'
 						break;
 					case 'left':
 						this.position.x -= 1;
+						this.direction='left'
 						break;
 					case 'up':
 						this.position.y -= 1;
+						this.direction='up'
 						break;
 					case 'down':
 						this.position.y += 1;
+						this.direction ='down'
 						break;
 				}
-				if(this.you||this,name==='baba'){
+				if(this.you&&this.name==='baba'){
+					if(this.previousDirection===this.direction){
 				this.frame++
+					}else{
+						this.frame=0
+						this.previousDirection=this.direction
+					}
 				}
 			}
 		}

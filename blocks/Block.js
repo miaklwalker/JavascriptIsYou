@@ -93,7 +93,7 @@ export default class Block {
 						this.position.y += 1;
 						break;
 				}
-				if(this.you){
+				if(this.you||this,name==='baba'){
 				this.frame++
 				}
 			}

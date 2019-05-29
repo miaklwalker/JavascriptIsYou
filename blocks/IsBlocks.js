@@ -11,14 +11,14 @@ export class isBlock extends Block {
 
 		this.transformed1 = false;
 		this.transformed2 = false;
-
+		this.textFrame=0;
 		this.ruleOne = [];
 		this.ruleTwo = [];
 	}
 	show(canvas, context, Cells) {
 		context.drawImage(
 			loader(
-				GameInfo.textSprites[this.name],
+				GameInfo.textSprites[this.name][this.textFrame%3],
 				GameInfo.Text[this.name],
 			),
 			(this.position.x * canvas.width) / Cells,
@@ -26,6 +26,10 @@ export class isBlock extends Block {
 			canvas.width / Cells,
 			canvas.height / Cells,
 		);
+		this.frame++
+		if(this.frame%(1000/100)===0){
+			this.textFrame++
+		}
 	}
 	rules() {
 		let x = this.position.x;

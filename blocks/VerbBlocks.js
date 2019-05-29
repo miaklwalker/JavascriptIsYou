@@ -5,12 +5,13 @@ import { loader } from '../loaders/ImageLoader.js';
 export class verbBlock extends Block {
 	constructor(x, y, name) {
 		super(x, y, name, 'verb');
+		this.textFrame=0;
 		this.push = true;
 	}
 	show(canvas, context, Cells) {
 		context.drawImage(
 			loader(
-				GameInfo.textSprites[this.name],
+				GameInfo.textSprites[this.name][this.textFrame%3],
 				GameInfo.Text[this.name],
 			),
 			(this.position.x * canvas.width) / Cells,
@@ -18,5 +19,9 @@ export class verbBlock extends Block {
 			canvas.width / Cells,
 			canvas.height / Cells,
 		);
+		this.frame++
+		if(this.frame%(1000/100)===0){
+			this.textFrame++
+		}
 	}
 }

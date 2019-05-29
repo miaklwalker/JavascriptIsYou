@@ -13,8 +13,8 @@ export default class Block {
 
 		this.frame = 0;
 		this.wait = 0;
-		this.previousDirection='up'
-		this.direction='up'
+		this.previousDirection='right'
+		this.direction='right'
 		this.you = false;
 		this.push = false;
 		this.win = false;

@@ -24,6 +24,5 @@ export function Restart(lvlChange = false) {
 		}
 		GameInfo.drawn.level = false;
 		Level.msgCenter.purge();
-		console.log('Game Redrawn');
 	}
 }

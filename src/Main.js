@@ -9,10 +9,7 @@ import { Restart } from '../functions/Restart.js';
 import { MessageQueue } from '../MessageCenter/MessageQueue.js';
 import gameWin from '../functions/gameWin.js';
 
-export const Level = {
-	num: 0,
-	msgCenter: new MessageQueue(),
-};
+export const Level = {num: 0,msgCenter: new MessageQueue(),};
 
 const canvas = document.getElementById('screen');
 canvas.width = window.innerHeight;
@@ -24,18 +21,12 @@ function setup() {
 	draw();
 }
 function draw() {
-	if (Level.num < 5) {
-		// Draw BackGround
+	if (Level.num < 5||Level.num==='debug') {
 		context.drawImage(drawBackground(canvas, 'black'), 0, 0);
-		// Gets level data from Level Object and makes the level
 		makeLevel();
-		// Draws all the blocks
 		drawBlocks(canvas, context, GameInfo.Levels[Level.num].tiles);
-		// checks the rules
 		blockLogic();
-		// sends all of the messages
 		Level.msgCenter.dispatch();
-		// sets all of the rules
 		setRules();
 		Restart();
 		loop(draw);

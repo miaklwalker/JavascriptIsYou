@@ -6,4 +6,5 @@ export function win() {
 	Level.num++;
 	GameInfo.drawn.level = false;
 	Restart(true);
+	localStorage.setItem('saveGame',Level.num)
 }

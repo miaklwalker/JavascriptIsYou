@@ -17,6 +17,10 @@ canvas.height = window.innerHeight * 0.9;
 const context = canvas.getContext('2d');
 
 function setup() {
+	if(localStorage.getItem("saveGame")!=null){
+		Level.num = localStorage.getItem("saveGame")
+
+	}
 	controls.addControls();
 	draw();
 }

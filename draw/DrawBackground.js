@@ -1,4 +1,4 @@
-import memoize from '../functions/cache.js';
+import memoize from '../functions/Cache.js';
 
 function _drawBackground(canvas, color) {
 	const background = document.createElement('canvas');

@@ -12,7 +12,7 @@ export default function gameWin(canvas, context) {
   );
   document.addEventListener("click", () => {
     localStorage.clear();
-    //location.reload();
-    //removeEventListener('click');
+    location.reload();
+    removeEventListener("click");
   });
 }

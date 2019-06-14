@@ -12,7 +12,7 @@ function loadImage(url) {
 }
 
 function load([x, y, w, h], color) {
-  let location = "../images/Sprites.png";
+  let location = "https://raw.githubusercontent.com/miaklwalker/JavascriptIsYou/master/images/Sprites.png";
   let buffer = document.createElement("canvas");
   buffer.width = 25;
   buffer.height = 25;

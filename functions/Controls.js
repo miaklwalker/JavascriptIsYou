@@ -5,6 +5,8 @@ import { Restart } from './Restart.js';
 
 export let controls = {
 	name: 'controls',
+	lastPressed:'',
+	lastPressedTime:0,
 	KeyW: false,
 	KeyS: false,
 	KeyA: false,
@@ -58,14 +60,21 @@ export let controls = {
 				if (event.code === 'KeyR') {
 					Restart(true);
 				}
-				runCollisions(event.code);
-				let msg = new Message(
-					'controls',
-					'EventListener',
-					'keyPress',
-					event.code,
-				);
-				Level.msgCenter.add(msg);
+				let time = new Date().getTime();
+				if(time-this.lastPressedTime > 100) {
+					if (this.lastPressed !== event.code || time - this.lastPressedTime > 250) {
+						this.lastPressed = event.code;
+						this.lastPressedTime = time;
+						runCollisions(event.code);
+						let msg = new Message(
+							'controls',
+							'EventListener',
+							'keyPress',
+							event.code,
+						);
+						Level.msgCenter.add(msg);
+					}
+				}
 			}
 		});
 
@@ -73,6 +82,7 @@ export let controls = {
 			if (Object.keys(this).includes(`${event.code}`)) {
 				event.preventDefault();
 				this[event.code] = false;
+				this.lastPressed =''
 			}
 		});
 		document.addEventListener('click', () => {

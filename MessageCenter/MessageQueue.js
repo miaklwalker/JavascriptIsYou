@@ -13,7 +13,6 @@ export class MessageQueue {
 		for (let i = 0; i < 4; i++) {
 			allBlocks[i].forEach(block => this.entities.push(block));
 		}
-		controls.addControls;
 		this.entities.push(controls);
 	}
 	dispatch() {

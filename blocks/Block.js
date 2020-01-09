@@ -3,6 +3,8 @@ import { uniqueid } from '../functions/CreateId.js';
 import { spriteBlocks } from './BlocksCache.js';
 import { win } from '../functions/win.js';
 import { GameInfo } from '../GameFiles/Levels.js';
+import {loader} from "../loaders/ImageLoader.js";
+
 
 export default class Block {
 	constructor(x, y, name, type, id = uniqueid()) {
@@ -12,9 +14,10 @@ export default class Block {
 		this.type = type;
 
 		this.frame = 0;
+		this.textFrame = 0;
 		this.wait = 0;
-		this.previousDirection='right'
-		this.direction='right'
+		this.previousDirection='right';
+		this.direction='right';
 		this.you = false;
 		this.push = false;
 		this.win = false;
@@ -27,6 +30,22 @@ export default class Block {
 		this.left = false;
 		this.up = false;
 		this.down = false;
+	}
+	show(canvas, context, Cells) {
+		context.drawImage(
+			loader(
+				GameInfo.textSprites[this.name][this.textFrame%3],
+				GameInfo.Text[this.name],
+			),
+			(this.position.x * canvas.width) / Cells,
+			(this.position.y * canvas.height) / Cells,
+			canvas.width / Cells,
+			canvas.height / Cells,
+		);
+		this.frame++;
+		if(this.frame%(1000/100)===0){
+			this.textFrame++
+		}
 	}
 	sinkBlock() {
 		if (this.sink) {
@@ -54,6 +73,7 @@ export default class Block {
 				if (block.you) {
 					if (block.position.same(this.position)) {
 						win();
+						console.log('win')
 					}
 				}
 			});
@@ -84,26 +104,26 @@ export default class Block {
 				switch (message.data) {
 					case 'right':
 						this.position.x += 1;
-						this.direction='right'
+						this.direction='right';
 						break;
 					case 'left':
 						this.position.x -= 1;
-						this.direction='left'
+						this.direction='left';
 						break;
 					case 'up':
 						this.position.y -= 1;
-						this.direction='up'
+						this.direction='up';
 						break;
 					case 'down':
 						this.position.y += 1;
-						this.direction ='down'
+						this.direction ='down';
 						break;
 				}
 				if(this.you&&this.name==='baba'){
 					if(this.previousDirection===this.direction){
 				this.frame++
 					}else{
-						this.frame=0
+						this.frame=0;
 						this.previousDirection=this.direction
 					}
 				}
@@ -113,7 +133,7 @@ export default class Block {
 		this.right = false;
 		this.up = false;
 		this.down = false;
-		this.edges()
+		this.edges();
 		this.winLevel();
 		this.sinkBlock();
 		this.delete();

@@ -2,7 +2,6 @@ import { Vector } from '../Math/Vector.js';
 import Block from './Block.js';
 import { GameInfo } from '../GameFiles/Levels.js';
 import { nounBlocks, verbBlocks, spriteBlocks } from './BlocksCache.js';
-import { loader } from '../loaders/ImageLoader.js';
 
 export class isBlock extends Block {
 	constructor(x, y) {
@@ -14,22 +13,6 @@ export class isBlock extends Block {
 		this.textFrame=0;
 		this.ruleOne = [];
 		this.ruleTwo = [];
-	}
-	show(canvas, context, Cells) {
-		context.drawImage(
-			loader(
-				GameInfo.textSprites[this.name][this.textFrame%3],
-				GameInfo.Text[this.name],
-			),
-			(this.position.x * canvas.width) / Cells,
-			(this.position.y * canvas.height) / Cells,
-			canvas.width / Cells,
-			canvas.height / Cells,
-		);
-		this.frame++
-		if(this.frame%(1000/100)===0){
-			this.textFrame++
-		}
 	}
 	rules() {
 		let x = this.position.x;

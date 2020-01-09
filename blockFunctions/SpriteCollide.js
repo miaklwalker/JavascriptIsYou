@@ -51,6 +51,7 @@ export function SpriteCollision(other) {
 					'none',
 					false,
 				);
+				Level.msgCenter.add(message);
 			}
 		}
 	});

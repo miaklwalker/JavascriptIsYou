@@ -12,7 +12,7 @@ import gameWin from '../functions/gameWin.js';
 export const Level = {num: 0,msgCenter: new MessageQueue(),};
 
 const canvas = document.getElementById('screen');
-canvas.width = window.innerHeight;
+canvas.width = window.innerWidth/2;
 canvas.height = window.innerHeight * 0.9;
 const context = canvas.getContext('2d');
 

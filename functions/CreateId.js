@@ -1,11 +1,11 @@
 export function uniqueid() {
-	let idstr = String.fromCharCode(Math.floor(Math.random() * 25 + 65));
+	let id = String.fromCharCode(Math.floor(Math.random() * 25 + 65));
 	do {
-		var ascicode = Math.floor(Math.random() * 42 + 48);
-		if (ascicode < 58 || ascicode > 64) {
-			idstr += String.fromCharCode(ascicode);
+		let ASCI_Code = Math.floor(Math.random() * 42 + 48);
+		if (ASCI_Code < 58 || ASCI_Code > 64) {
+			id += String.fromCharCode(ASCI_Code);
 		}
-	} while (idstr.length < 32);
+	} while (id.length < 32);
 
-	return idstr;
+	return id;
 }

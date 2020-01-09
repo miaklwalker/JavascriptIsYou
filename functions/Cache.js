@@ -4,14 +4,14 @@ From a memoization library
 https://github.com/caiogondim/fast-memoize.js
 */
 function memoize(fn, options) {
-	var cache = options && options.cache ? options.cache : cacheDefault;
+	let cache = options && options.cache ? options.cache : cacheDefault;
 
-	var serializer =
+	let serializer =
 		options && options.serializer
 			? options.serializer
 			: serializerDefault;
 
-	var strategy =
+	let strategy =
 		options && options.strategy ? options.strategy : strategyDefault;
 
 	return strategy(fn, {
@@ -29,9 +29,9 @@ function isPrimitive(value) {
 }
 
 function monadic(fn, cache, serializer, arg) {
-	var cacheKey = isPrimitive(arg) ? arg : serializer(arg);
+	let cacheKey = isPrimitive(arg) ? arg : serializer(arg);
 
-	var computedValue = cache.get(cacheKey);
+	let computedValue = cache.get(cacheKey);
 	if (typeof computedValue === 'undefined') {
 		computedValue = fn.call(this, arg);
 		cache.set(cacheKey, computedValue);
@@ -41,10 +41,10 @@ function monadic(fn, cache, serializer, arg) {
 }
 
 function variadic(fn, cache, serializer) {
-	var args = Array.prototype.slice.call(arguments, 3);
-	var cacheKey = serializer(args);
+	let args = Array.prototype.slice.call(arguments, 3);
+	let cacheKey = serializer(args);
 
-	var computedValue = cache.get(cacheKey);
+	let computedValue = cache.get(cacheKey);
 	if (typeof computedValue === 'undefined') {
 		computedValue = fn.apply(this, args);
 		cache.set(cacheKey, computedValue);
@@ -58,7 +58,7 @@ function assemble(fn, context, strategy, cache, serialize) {
 }
 
 function strategyDefault(fn, options) {
-	var strategy = fn.length === 1 ? monadic : variadic;
+	let strategy = fn.length === 1 ? monadic : variadic;
 
 	return assemble(
 		fn,
@@ -70,7 +70,7 @@ function strategyDefault(fn, options) {
 }
 
 function strategyVariadic(fn, options) {
-	var strategy = variadic;
+	let strategy = variadic;
 
 	return assemble(
 		fn,
@@ -82,7 +82,7 @@ function strategyVariadic(fn, options) {
 }
 
 function strategyMonadic(fn, options) {
-	var strategy = monadic;
+	let strategy = monadic;
 
 	return assemble(
 		fn,
@@ -113,7 +113,7 @@ ObjectWithoutPrototypeCache.prototype.set = function(key, value) {
 	this.cache[key] = value;
 };
 
-var cacheDefault = {
+let cacheDefault = {
 	create: function create() {
 		return new ObjectWithoutPrototypeCache();
 	},
